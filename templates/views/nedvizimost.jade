@@ -1,0 +1,35 @@
+extends ../layouts/default
+
+block css
+    link(href="/keystone/styles/bootstrap/bootstrap.min.css", rel="stylesheet")
+
+block content
+    h1 Недвижимость
+
+    if nedvizimost.length
+
+        each ned, i in nedvizimost
+            if i
+                hr
+            h3= ned.raion
+                small.text-muted= ned.address
+
+
+    else
+        .jumbotron.text-center
+            .lead.text-muted There are no nedviz in the database.
+
+
+    if !user
+        a(href='#' title="Доступно только зарегистрированным пользователям!" data-placement='right').btn.btn-warning Join SydJS
+    else
+        a(href='#').btn.btn-primary Join SydJS
+
+
+block js
+    script(src='/js/lib/bootstrap/tooltip.js')
+    script.
+        $(document).ready(function(){
+                $(".btn.btn-warning").tooltip();
+        })
+
