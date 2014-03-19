@@ -18,7 +18,7 @@ var Ned = new keystone.List('Nedvizimost', {
 
 Ned.add({
     name: { type: String, required: true, label: "Город"  },
-    myid: { type: Types.Number, index: true },      // id ломает все нахер!
+    ids: { type: Types.Number, index: true },      // id ломает все нахер!
     new: { type: Types.Text, initial: true, label: "Новая"   },
     raion: { type: Types.Text, initial: true, label: "Район"   },
     address: { type: Types.Text, initial: true, label: "Адрес"   },
@@ -51,19 +51,19 @@ Ned.add({
 Ned.schema.pre('save', function(next) {
 
     var nedv = this;
-    var q = Ned.model.findOne().sort('-myid');
+    var q = Ned.model.findOne().sort('-ids');
 
     console.log("Max id000 " + nedv.name);
 
     q.exec(function(err, max) {
         console.log("Max id111 " + nedv.name);
         if(max != null) {
-            nedv.myid = (max.myid) ? max.myid + 1 : 1;
-            console.log("Max id " + max.myid);
+            nedv.ids = (max.ids) ? max.ids + 1 : 1;
+            console.log("Max id " + max.ids);
             next();
         }else{
-            nedv.myid = 1;
-            console.log("Max null" + this.myid);
+            nedv.ids = 1;
+            console.log("Max null" + this.ids);
             next();
         }
     });
@@ -76,7 +76,7 @@ Ned.schema.pre('save', function(next) {
 */
 /*
 Ned.schema.methods.refreshID = function(callback) {
-    console.log("this.myid " + this.myid);
+    console.log("this.ids " + this.ids);
         var nedv = this;
         nedv.save();
 }
