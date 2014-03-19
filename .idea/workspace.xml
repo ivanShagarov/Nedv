@@ -2,12 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d2c47532-7b30-49aa-9c9c-ec0bea81bff0" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gitignore" afterPath="$PROJECT_DIR$/.gitignore" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="nedv.iws" />
     <ignored path=".idea/workspace.xml" />
-    <file path="/Dummy.txt" changelist="d2c47532-7b30-49aa-9c9c-ec0bea81bff0" time="1395235881985" ignored="false" />
+    <file path="/Dummy.txt" changelist="d2c47532-7b30-49aa-9c9c-ec0bea81bff0" time="1395235999730" ignored="false" />
     <file path="/.gitignore" changelist="d2c47532-7b30-49aa-9c9c-ec0bea81bff0" time="1395235964592" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -105,22 +104,13 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="keystone.js" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="keystone.js" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/keystone.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="70" column="0" selection-start="1685" selection-end="1685" vertical-scroll-proportion="0.0">
+            <state line="70" column="0" selection-start="1685" selection-end="1685" vertical-scroll-proportion="0.40903956">
               <folding>
                 <element signature="n#!!doc" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name=".gitignore" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/.gitignore">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="7" column="5" selection-start="49" selection-end="49" vertical-scroll-proportion="0.118644066">
-              <folding />
             </state>
           </provider>
         </entry>
@@ -331,17 +321,21 @@
       <created>1395234756311</created>
       <updated>1395234756311</updated>
       <workItem from="1395234776785" duration="412000" />
-      <workItem from="1395235202109" duration="797000" />
+      <workItem from="1395235202109" duration="885000" />
     </task>
     <task id="LOCAL-00001" summary="test">
       <created>1395235883060</created>
       <updated>1395235883060</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="test">
+      <created>1395236004407</created>
+      <updated>1395236004407</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="1209000" />
+    <option name="totallyTimeSpent" value="1297000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-1" y="0" width="1922" height="1061" extended-state="6" />
@@ -473,19 +467,19 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/keystone.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="70" column="0" selection-start="1685" selection-end="1685" vertical-scroll-proportion="0.0">
-          <folding>
-            <element signature="n#!!doc" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/.gitignore">
       <provider selected="true" editor-type-id="text-editor">
         <state line="7" column="5" selection-start="49" selection-end="49" vertical-scroll-proportion="0.118644066">
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/keystone.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="70" column="0" selection-start="1685" selection-end="1685" vertical-scroll-proportion="0.40903956">
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
