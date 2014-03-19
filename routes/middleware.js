@@ -26,8 +26,9 @@ exports.initLocals = function(req, res, next) {
 	var locals = res.locals;
 	
 	locals.navLinks = [
-		{ label: 'Home',		key: 'home',		href: '/' },
-		{ label: 'Contact',		key: 'contact',		href: '/contact' }
+        { label: 'Главная',		key: 'home',		href: '/' },
+        { label: 'Обратная связь',		key: 'contact',		href: '/contact' },
+        { label: 'Недвижимость',		key: 'nedvizimost',		href: '/nedvizimost' }
 	];
 	
 	locals.user = req.user;
@@ -35,7 +36,6 @@ exports.initLocals = function(req, res, next) {
 	next();
 	
 };
-
 
 /**
 	Fetches and clears the flashMessages before a view is rendered
@@ -70,4 +70,4 @@ exports.requireUser = function(req, res, next) {
 		next();
 	}
 	
-}
+};

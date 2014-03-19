@@ -8,7 +8,7 @@ exports = module.exports = function(req, res) {
     // Set locals
     locals.section = 'nedvizimost';
 
-    view.query('nedvizimost', keystone.list('nedvizimost').model.find().sort('sortOrder'));
+    view.query('nedvizimost', keystone.list('Nedvizimost').model.find().sort('sortOrder'));
     view.render('nedvizimost');
 
-}
+};
