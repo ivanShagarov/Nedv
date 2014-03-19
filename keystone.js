@@ -84,6 +84,7 @@ keystone.set('email rules', [{
 	replace: (keystone.get('env') == 'production') ? 'http://www.your-server.com/keystone/' : 'http://localhost:3000/keystone/'
 }]);
 
+
 // Load your project's email test routes
 
 keystone.set('email tests', require('./routes/emails'));
