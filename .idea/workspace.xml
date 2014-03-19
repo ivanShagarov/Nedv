@@ -1,10 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="d2c47532-7b30-49aa-9c9c-ec0bea81bff0" name="Default" comment="" />
+    <list default="true" id="d2c47532-7b30-49aa-9c9c-ec0bea81bff0" name="Default" comment="test3">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.env" afterPath="$PROJECT_DIR$/.env" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gitignore" afterPath="$PROJECT_DIR$/.gitignore" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+    </list>
     <ignored path="nedv.iws" />
     <ignored path=".idea/workspace.xml" />
-    <file path="/Dummy.txt" changelist="d2c47532-7b30-49aa-9c9c-ec0bea81bff0" time="1395236087643" ignored="false" />
+    <file path="/Dummy.txt" changelist="d2c47532-7b30-49aa-9c9c-ec0bea81bff0" time="1395236818241" ignored="false" />
     <file path="/.gitignore" changelist="d2c47532-7b30-49aa-9c9c-ec0bea81bff0" time="1395235964592" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -102,13 +106,22 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="keystone.js" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="keystone.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/keystone.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="70" column="0" selection-start="1685" selection-end="1685" vertical-scroll-proportion="0.40903956">
+            <state line="86" column="0" selection-start="2255" selection-end="2255" vertical-scroll-proportion="0.0">
               <folding>
                 <element signature="n#!!doc" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name=".env" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/.env">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="1" column="67" selection-start="92" selection-end="92" vertical-scroll-proportion="0.016949153">
+              <folding />
             </state>
           </provider>
         </entry>
@@ -132,8 +145,9 @@
     <option name="changedFiles">
       <list>
         <option value="$PROJECT_DIR$/routes/index.js" />
-        <option value="$PROJECT_DIR$/keystone.js" />
         <option value="$PROJECT_DIR$/.gitignore" />
+        <option value="$PROJECT_DIR$/keystone.js" />
+        <option value="$PROJECT_DIR$/.env" />
       </list>
     </option>
   </component>
@@ -319,7 +333,7 @@
       <created>1395234756311</created>
       <updated>1395234756311</updated>
       <workItem from="1395234776785" duration="412000" />
-      <workItem from="1395235202109" duration="1004000" />
+      <workItem from="1395235202109" duration="1667000" />
     </task>
     <task id="LOCAL-00001" summary="test">
       <created>1395235883060</created>
@@ -333,11 +347,15 @@
       <created>1395236091520</created>
       <updated>1395236091520</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="test3">
+      <created>1395236295763</created>
+      <updated>1395236295763</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="1416000" />
+    <option name="totallyTimeSpent" value="2079000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-1" y="0" width="1922" height="1061" extended-state="6" />
@@ -407,7 +425,7 @@
     <option name="WRAP_WHEN_TYPING_REACHES_RIGHT_MARGIN" value="false" />
     <option name="FORCE_NON_EMPTY_COMMENT" value="false" />
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="false" />
-    <option name="LAST_COMMIT_MESSAGE" value="test" />
+    <option name="LAST_COMMIT_MESSAGE" value="test3" />
     <option name="MAKE_NEW_CHANGELIST_ACTIVE" value="false" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_FILES_UP_TO_DATE_BEFORE_COMMIT" value="false" />
@@ -422,6 +440,7 @@
     <option name="SHOW_FILE_HISTORY_AS_TREE" value="false" />
     <option name="FILE_HISTORY_SPLITTER_PROPORTION" value="0.6" />
     <MESSAGE value="test" />
+    <MESSAGE value="test3" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -478,10 +497,17 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/keystone.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="70" column="0" selection-start="1685" selection-end="1685" vertical-scroll-proportion="0.40903956">
+        <state line="86" column="0" selection-start="2255" selection-end="2255" vertical-scroll-proportion="0.0">
           <folding>
             <element signature="n#!!doc" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.env">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="1" column="67" selection-start="92" selection-end="92" vertical-scroll-proportion="0.016949153">
+          <folding />
         </state>
       </provider>
     </entry>
