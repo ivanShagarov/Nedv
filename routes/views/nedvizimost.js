@@ -35,6 +35,7 @@ exports = module.exports = function(req, res) {
 
 
 
+
     view.query('nedvizimost', keystone.list('Nedvizimost').model.find().sort('sortOrder'));
     view.render('nedvizimost');
 
