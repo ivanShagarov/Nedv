@@ -23,27 +23,27 @@ Ned.add({
     raion: { type: Types.Text, initial: true, label: "Район"   },
     address: { type: Types.Text, initial: true, label: "Адрес"   },
     etaz: { type: Types.Text, initial: true, label: "Этаж"   },
-    etaznost: { type: Types.Text, initial: true, label: "Этажность"   },
+    etazost: { type: Types.Text, initial: true, label: "Этажность"   },
     plosh: { type: Types.Text, initial: true, label: "Площадь"   },
     zilaya: { type: Types.Text, initial: true, label: "Жилая"   },
     kuhnya: { type: Types.Text, initial: true, label: "Кухня"   },
     price: { type: Types.Text, initial: true, label: "Цена"   },
     contact: { type: Types.Text, initial: true, label: "Телефон"   },
     date: { type: Types.Text, initial: true, label: "Дата"   },
-    source: { type: Types.Text, initial: true  },
-    typeobyavl: { type: Types.Text, initial: true  },
-    marketType: { type: Types.Text, initial: true  },
-    komnat: { type: Types.Text, initial: true  },
-    category: { type: Types.Text, initial: true  },
-    houseType: { type: Types.Text, initial: true  },
-    leaseType: { type: Types.Text, initial: true  },
-    persname: { type: Types.Text, initial: true  },
-    contname: { type: Types.Text, initial: true  },
-    photos: { type: Types.Text, initial: true  },
-    text: { type: Types.Text, initial: true  },
-    link: { type: Types.Text, initial: true  },
-    time: { type: Types.Text, initial: true  },
-    agent: { type: Types.Text, initial: true  }
+    source: { type: Types.Text, initial: true, label: "Сайт"   },
+    typeobyavl: { type: Types.Text, initial: true, label: "Тип объявления"   },
+    marketType: { type: Types.Text, initial: true, label: "Тип рынка"   },
+    komnat: { type: Types.Text, initial: true, label: "Комнат"   },
+    category: { type: Types.Text, initial: true, label: "Категория"   },
+    houseType: { type: Types.Text, initial: true, label: "Тип дома"   },
+    leaseType: { type: Types.Text, initial: true, label: "Тип аренды"   },
+    persname: { type: Types.Text, initial: true, label: "Продавец"   },
+    contname: { type: Types.Text, initial: true, label: "Имя"   },
+    photos: { type: Types.Text, initial: true, label: "Фото"   },
+    text: { type: Types.Text, initial: true, label: "Описание"   },
+    link: { type: Types.Text, initial: true, label: "Ссылка"   },
+    time: { type: Types.Text, initial: true, label: "Время"   },
+    agent: { type: Types.Text, initial: true, label: "Агент"   }
 
 
 });
@@ -51,22 +51,24 @@ Ned.add({
 Ned.schema.pre('save', function(next) {
 
     var nedv = this;
-    var q = Ned.model.findOne().sort('-ids');
+    if(nedv.ids === undefined) {
+        var q = Ned.model.findOne().sort('-ids');
+        console.log("This id: " + nedv.ids);
+        q.exec(function(err, max) {
+            if(max != null) {
+                nedv.ids = (max.ids) ? max.ids + 1 : 1;
+                console.log("Max id " + max.ids);
+                next();
+            }else{
+                nedv.ids = 1;
+                console.log("Max null" + this.ids);
+                next();
+            }
+        });
+    } else {
+        next();
+    }
 
-    console.log("Max id000 " + nedv.name);
-
-    q.exec(function(err, max) {
-        console.log("Max id111 " + nedv.name);
-        if(max != null) {
-            nedv.ids = (max.ids) ? max.ids + 1 : 1;
-            console.log("Max id " + max.ids);
-            next();
-        }else{
-            nedv.ids = 1;
-            console.log("Max null" + this.ids);
-            next();
-        }
-    });
 });
 
 
@@ -83,5 +85,5 @@ Ned.schema.methods.refreshID = function(callback) {
 */
 
 
-Ned.defaultColumns = 'name, new, raion, address, etaz, etaznost, plosh, zilaya, kuhnya, price';
+Ned.defaultColumns = 'name, category, raion, address, etaz, etazost, plosh, price, contact, new';
 Ned.register();
