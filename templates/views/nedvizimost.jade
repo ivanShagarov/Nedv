@@ -2,10 +2,16 @@ extends ../layouts/default
 
 block css
     link(href="/keystone/styles/bootstrap/bootstrap.min.css", rel="stylesheet")
+    link(href="/js/lib/jqwidgets/styles/jqx.base.css", rel="stylesheet")
 
 block content
-    h1 Недвижимость
+    .container
+        h1 Недвижимость
+        if data.nedvCount
+            h3 #{data.nedvCount}
 
+        #jqxgrid
+//-
     if nedvizimost.length
 
         each ned, i in nedvizimost
@@ -26,10 +32,43 @@ block content
         a(href='#').btn.btn-primary Join SydJS
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 block js
     script(src='/js/lib/bootstrap/tooltip.js')
+    script(src='/js/lib/jqwidgets/jqxcore.js')
+    script(src='/js/lib/jqwidgets/jqxdata.js')
+    script(src='/js/lib/jqwidgets/jqxbuttons.js')
+    script(src='/js/lib/jqwidgets/jqxscrollbar.js')
+    script(src='/js/lib/jqwidgets/jqxmenu.js')
+    script(src='/js/lib/jqwidgets/jqxlistbox.js')
+    script(src='/js/lib/jqwidgets/jqxdropdownlist.js')
+    script(src='/js/lib/jqwidgets/jqxgrid.js')
+    script(src='/js/lib/jqwidgets/jqxgrid.selection.js')
+    script(src='/js/lib/jqwidgets/jqxgrid.columnsresize.js')
+    script(src='/js/lib/jqwidgets/jqxgrid.filter.js')
+    script(src='/js/lib/jqwidgets/jqxgrid.sort.js')
+    script(src='/js/lib/jqwidgets/jqxgrid.pager.js')
+    script(src='/js/lib/jqwidgets/jqxgrid.grouping.js')
+    script(src='/js/lib/jqwidgets/jqxtabs.js')
+    script(src='/js/nedvizClient.js')
+
     script.
         $(document).ready(function(){
                 $(".btn.btn-warning").tooltip();
         })
-

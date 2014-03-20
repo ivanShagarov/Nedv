@@ -24,6 +24,7 @@ var _ = require('underscore'),
 	importRoutes = keystone.importer(__dirname);
 
 // Common Middleware
+//keystone.pre('routes', middleware.checkParams);
 keystone.pre('routes', middleware.initLocals);
 keystone.pre('render', middleware.flashMessages);
 

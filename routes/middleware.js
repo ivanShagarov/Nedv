@@ -21,6 +21,26 @@ var _ = require('underscore'),
 	or replace it with your own templates / logic.
 */
 
+/*
+exports.checkParams = function(req, res, next) {
+
+console.log("Total0");
+
+if (req.query.total) {
+
+    console.log("Total12");
+
+    keystone.list('Nedvizimost').model.count().exec(function(err, count) {
+
+        console.log("Total " + count);
+        return res.json(200, { status: 'OK', users: 0, Prods: "33" });
+
+    });
+}
+
+}
+*/
+
 exports.initLocals = function(req, res, next) {
 	
 	var locals = res.locals;
