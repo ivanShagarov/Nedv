@@ -20,6 +20,8 @@ Ned.add({
     name: { type: String, required: true, label: "Город"  },
     ids: { type: Types.Number, index: true },      // id ломает все нахер!
     new: { type: Types.Text, initial: true, label: "Новая"   },
+    category: { type: Types.Text, initial: true, label: "Категория"   },
+    typeobyavl: { type: Types.Text, initial: true, label: "Тип объявления"   },
     raion: { type: Types.Text, initial: true, label: "Район"   },
     address: { type: Types.Text, initial: true, label: "Адрес"   },
     etaz: { type: Types.Text, initial: true, label: "Этаж"   },
@@ -29,12 +31,10 @@ Ned.add({
     kuhnya: { type: Types.Text, initial: true, label: "Кухня"   },
     price: { type: Types.Text, initial: true, label: "Цена"   },
     contact: { type: Types.Text, initial: true, label: "Телефон"   },
-    date: { type: Types.Text, initial: true, label: "Дата"   },
+    date: { type: Types.Date, initial: true, label: "Дата"   },
     source: { type: Types.Text, initial: true, label: "Сайт"   },
-    typeobyavl: { type: Types.Text, initial: true, label: "Тип объявления"   },
     marketType: { type: Types.Text, initial: true, label: "Тип рынка"   },
     komnat: { type: Types.Text, initial: true, label: "Комнат"   },
-    category: { type: Types.Text, initial: true, label: "Категория"   },
     houseType: { type: Types.Text, initial: true, label: "Тип дома"   },
     leaseType: { type: Types.Text, initial: true, label: "Тип аренды"   },
     persname: { type: Types.Text, initial: true, label: "Продавец"   },
@@ -85,5 +85,5 @@ Ned.schema.methods.refreshID = function(callback) {
 */
 
 
-Ned.defaultColumns = 'name, category, raion, address, etaz, etazost, plosh, price, contact, new';
+Ned.defaultColumns = 'name, category, typeobyavl, address, etaz, etazost, plosh, price, contact, new';
 Ned.register();
