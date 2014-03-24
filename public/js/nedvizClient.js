@@ -6,7 +6,7 @@ var source =
     root: 'Rows',
     url: 'nedvizimost',
     cache: false,
-    sortcolumn: 'new',
+    sortcolumn: 'date',
     sortdirection: 'desc',
     datafields: [
         { name: 'new', type: 'string'},
@@ -19,7 +19,8 @@ var source =
         { name: 'etaz', type: 'string'},
         { name: 'etazost', type: 'string'},
         { name: 'plosh', type: 'string'},
-        { name: 'price', type: 'float'},
+        { name: 'price', type: 'int'},
+        { name: 'photos', type: 'string'},
         { name: 'contact', type: 'string'}
     ],
     filter: function()
@@ -42,15 +43,125 @@ var source =
         }
 };
 
+
+var initrowdetails = function (index, parentElement, gridElement, datarecord) {
+        var tabsdiv = null;
+        var information = null;
+        var notes = null;
+        tabsdiv = $($(parentElement).children()[0]);
+        if (tabsdiv != null) {
+            /*
+            $.each(tabsdiv[0], function(key, element) {
+                alert('key: ' + key + '\n' + 'value: ' + element);
+            });
+            */
+           //    $('li:contains("Notes")').text("Описание:");
+            information = tabsdiv.find('.information');
+            notes = tabsdiv.find('.notes');
+            var title = tabsdiv.find('.title');
+            title.text("Детали:");
+            var container = $('<div style="margin: 5px;"></div>');
+            container.appendTo($(information));
+            var photocolumn = $('<div style="float: left; width: 15%;"></div>');
+            var leftcolumn = $('<div style="float: left; width: 45%;"></div>');
+            var rightcolumn = $('<div style="float: left; width: 40%;"></div>');
+            container.append(photocolumn);
+            container.append(leftcolumn);
+            container.append(rightcolumn);
+
+            //alert(datarecord.photos);
+            var photo = $("<div class='jqx-rc-all' style='margin: 10px;'><b>Фото:</b></div>");
+
+
+            if(datarecord.photos){
+
+                var singlePhotoArr = datarecord.photos.split(', ');
+
+                var image = "";
+                var img = "";
+                var vsego = "";
+
+                /*
+                image = $("<div style='margin-top: 10px;'></div>");
+                img = $('<img height="60" src="' + singlePhotoArr[0] + '"/>');
+                vsego = $('<p style="margin-top: 10px;">Всего ' + singlePhotoArr.length + ' фото</p>');
+
+                image.append(img);
+                image.append(vsego);
+                image.appendTo(photo);
+
+                */
+
+                $.each(singlePhotoArr, function(key, imgurl) {
+
+                   if (key === 0) {
+
+                    image = $("<div style='margin-top: 10px;'></div>");
+                    img = $('<a href="' + imgurl + '" class="boxer boxer_image" data-gallery="gallery"><img height="60"  alt="Thumbnail" src="' + imgurl + '"/></a>');
+                    vsego = $('<p style="margin-top: 10px;">Всего ' + singlePhotoArr.length + ' фото</p>');
+                    image.append(img);
+                    image.append(vsego);
+                    image.appendTo(photo);
+
+
+                   } else {
+
+                       image = $("<div style='margin-top: 10px;'></div>");
+                       img = $('<a href="' + imgurl + '" class="boxer boxer_image"  data-gallery="gallery"><img height="60"  alt="Thumbnail" src="' + imgurl + '"/></a>');
+                       image.append(img);
+                       image.appendTo(photo);
+
+                   }
+
+
+                });
+
+
+                photocolumn.append(photo);
+
+
+                $(".boxer").boxer();
+
+
+            } else {
+                photocolumn.append(photo);
+                photocolumn.append("Без фото");
+            }
+
+
+            var firstname = "<div style='margin: 10px;'><b>First Name:</b> " + datarecord.name + "</div>";
+            var lastname = "<div style='margin: 10px;'><b>Last Name:</b> " + datarecord.name + "</div>";
+            var title = "<div style='margin: 10px;'><b>Title:</b> " + datarecord.contact + "</div>";
+            var address = "<div style='margin: 10px;'><b>Address:</b> " + datarecord.address + "</div>";
+            $(leftcolumn).append(firstname);
+            $(leftcolumn).append(lastname);
+            $(leftcolumn).append(title);
+            $(leftcolumn).append(address);
+            var postalcode = "<div style='margin: 10px;'><b>Postal Code:</b> " + datarecord.contact + "</div>";
+            var city = "<div style='margin: 10px;'><b>City:</b> " + datarecord.name + "</div>";
+            var phone = "<div style='margin: 10px;'><b>Phone:</b> " + datarecord.contact + "</div>";
+            var hiredate = "<div style='margin: 10px;'><b>Hire Date:</b> " + datarecord.contact + "</div>";
+            $(rightcolumn).append(postalcode);
+            $(rightcolumn).append(city);
+            $(rightcolumn).append(phone);
+            $(rightcolumn).append(hiredate);
+            var notescontainer = $('<div style="white-space: normal; margin: 5px;"><span>' + datarecord.contact + '</span></div>');
+            $(notes).append(notescontainer);
+            $(tabsdiv).jqxTabs({ width: 1050, height: 170});
+        }
+}
+
+
+
 var dataadapter = new $.jqx.dataAdapter(source, {
     loadError: function(xhr, status, error)
     {
     alert(error);
     }
-}
+});
 
 
-);
+
 
 var getLocalization = function () {
         var localizationobj = {};
@@ -109,7 +220,7 @@ var getLocalization = function () {
 
         var patterns = {
             // short date pattern
-            d: "d/M/yyyy",
+            d: "dd/MM/yyyy",
             // long date pattern
             D: "dddd, dd MMMM, yyyy",
             // short time pattern
@@ -130,7 +241,7 @@ var getLocalization = function () {
         localizationobj.patterns = patterns;
 
     return localizationobj;
-    }
+}
 
 
 // initialize jqxGrid
@@ -148,6 +259,12 @@ $("#jqxgrid").jqxGrid(
                 columnsresize: true,
                 virtualmode: true,
                 localization: getLocalization(),
+                rowdetails: true,
+                rowdetailstemplate: { rowdetails: "<div style='margin: 10px;'><ul style='margin-left: 30px;'><li class='title'></li><li>Описание:</li></ul><div class='information'></div><div class='notes'></div></div>", rowdetailsheight: 200 },
+                ready: function () {
+                    $("#jqxgrid").jqxGrid('showrowdetails', 0);
+                },
+                initrowdetails: initrowdetails,
                 rendergridrows: function(obj)
                 {
                 return obj.data;
@@ -158,19 +275,19 @@ $("#jqxgrid").jqxGrid(
                         { text: 'Город', datafield: 'name', width: 100 },
                         { text: 'Объект', datafield: 'category', width: 100 },
                         { text: 'Тип сделки', datafield: 'typeobyavl', width: 100 },
-                        { text: 'Район', datafield: 'raion', width: 100 },
+                        { text: 'Район', datafield: 'raion', width: 89 },
                         { text: 'Адрес', datafield: 'address', width: 150 },
                         { text: 'Этаж', datafield: 'etaz', width: 50 },
-                        { text: 'Этажность', datafield: 'etazost', width: 70 },
+                        { text: 'Эт-ть', datafield: 'etazost', width: 50 },
                         { text: 'Площадь', datafield: 'plosh', width: 70 },
-                        { text: 'Цена', datafield: 'price', width: 140, cellsformat: 'c2' },
-                        { text: 'Телефон', datafield: 'contact', width: 100 }
+                        { text: 'Цена', datafield: 'price', width: 140, cellsformat: 'c' },
+                        { text: 'Телефон', datafield: 'contact', width: 100, cellsformat: 'n' }
                         ]
 });
 
 
 
-$("#jqxgrid").jqxGrid('localizestrings', localizationobj);
+
 
 
 
