@@ -36,9 +36,10 @@ exports = module.exports = function(req, res) {
 
         if (req.query.pagesize) {
 
-           var totalRows, greater, less, skip, limit = 0;
+           var totalRows, greater, less, skip, limit, filterscount = 0;
            var sortdatafield, sortorder, dataJson = "";
            var sortObj = {};
+
 
             keystone.list('Nedvizimost').model.count().exec(function(err, count) {
 
@@ -50,10 +51,17 @@ exports = module.exports = function(req, res) {
                 skip = req.query.pagesize * req.query.pagenum;
                 limit = ( ( req.query.pagesize * req.query.pagenum ) + req.query.pagesize );
 
-                sortdatafield = req.query.sortdatafield;
-                sortorder = req.query.sortorder;
 
-                sortObj[sortdatafield] = sortorder;
+                filterscount = req.query.filterscount;
+                if (filterscount != "") {
+                    if (filterscount > 0) {
+                        for (var i = 0; i < filterscount; i++) {
+
+                            console.log("filterscount " + filterscount);
+
+                        }
+                    }
+                }
 
                 /*
                 db.collection.update({"ID":"sample"},{"$set":{"Item.Possess.Jewel.1":888})
@@ -62,19 +70,23 @@ exports = module.exports = function(req, res) {
                 db.collection.update({"ID":"sample"}, set);
                 */
 
-                console.log("sortorder " + sortorder);
 
+
+
+                sortorder = req.query.sortorder;
                 if(sortorder != ""){
+
+                    sortdatafield = req.query.sortdatafield;
+                    sortObj[sortdatafield] = sortorder;
+
                     keystone.list('Nedvizimost').model.find({}).sort(sortObj).skip(skip).limit(limit).exec(function (err, data) {
                        return res.json(200, [ {TotalRows: totalRows}, { Rows: data } ]);
                        res.end();
-
                     });
                 } else {
                     keystone.list('Nedvizimost').model.find({}).skip(skip).limit(limit).exec(function (err, data) {
                         return res.json(200, [ {TotalRows: totalRows}, { Rows: data } ]);
                         res.end();
-
                     });
                 }
 

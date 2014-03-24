@@ -21,8 +21,27 @@ var source =
         { name: 'plosh', type: 'string'},
         { name: 'price', type: 'int'},
         { name: 'photos', type: 'string'},
-        { name: 'contact', type: 'string'}
+        { name: 'contact', type: 'string'},
+
+        { name: 'ids', type: 'int'},
+
+        { name: 'zilaya', type: 'int'},
+        { name: 'kuhnya', type: 'int'},
+        { name: 'marketType', type: 'string'},
+        { name: 'komnat', type: 'int'},
+        { name: 'houseType', type: 'string'},
+        { name: 'leaseType', type: 'string'},
+        { name: 'persname', type: 'string'},
+        { name: 'contname', type: 'string'},
+        { name: 'agent', type: 'string'},
+        { name: 'address', type: 'string'},
+        { name: 'text', type: 'string'},
+        { name: 'time', type: 'string'}
+
+
     ],
+
+
     filter: function()
         {
             // update the grid and send a request to the server.
@@ -97,20 +116,21 @@ var initrowdetails = function (index, parentElement, gridElement, datarecord) {
                    if (key === 0) {
 
                     image = $("<div style='margin-top: 10px;'></div>");
-                    img = $('<a href="' + imgurl + '" class="boxer boxer_image" data-gallery="gallery"><img height="60"  alt="Thumbnail" src="' + imgurl + '"/></a>');
+                    img = $('<a href="' + imgurl + '" class="boxer boxer_image" data-gallery="gallery' + datarecord.ids + '"><img height="60"  alt="Thumbnail" src="' + imgurl + '"/></a>');
                     vsego = $('<p style="margin-top: 10px;">Всего ' + singlePhotoArr.length + ' фото</p>');
                     image.append(img);
                     image.append(vsego);
                     image.appendTo(photo);
 
+                      // alert("1" + key);
 
                    } else {
 
-                       image = $("<div style='margin-top: 10px;'></div>");
-                       img = $('<a href="' + imgurl + '" class="boxer boxer_image"  data-gallery="gallery"><img height="60"  alt="Thumbnail" src="' + imgurl + '"/></a>');
+                       image = $("<div style='display:none;'></div>");
+                       img = $('<a href="' + imgurl + '" class="boxer boxer_image"  data-gallery="gallery' + datarecord.ids + '"><img height="60"  alt="Thumbnail" src="' + imgurl + '"/></a>');
                        image.append(img);
                        image.appendTo(photo);
-
+                      // alert("2" + key);
                    }
 
 
@@ -120,32 +140,75 @@ var initrowdetails = function (index, parentElement, gridElement, datarecord) {
                 photocolumn.append(photo);
 
 
+                $(".boxer").boxer("destroy");
                 $(".boxer").boxer();
+
 
 
             } else {
                 photocolumn.append(photo);
-                photocolumn.append("Без фото");
+                photocolumn.append('<p style="margin: 10px;">Без фото</p>');
+            }
+
+            var persname, contname, agent, address = "";
+
+            if(datarecord.persname){
+                var persname = "<div style='margin-top: 10px;'><b>Продавец:</b> " + datarecord.persname + "</div>";
+            }
+            if(datarecord.contname){
+                var contname = "<div style='margin-top: 10px;'><b>Имя:</b> " + datarecord.contname + "</div>";
+            }
+            if(datarecord.agent){
+                var agent = "<div style='margin-top: 10px;'><b>Агентство:</b> " + datarecord.agent + "</div>";
+            }
+            if(datarecord.address){
+                var address = "<div style='margin-top: 10px;'><b>Адрес:</b> " + datarecord.address + "</div>";
+            }
+
+            $(leftcolumn).append(persname);
+            $(leftcolumn).append(contname);
+            $(leftcolumn).append(agent);
+            $(leftcolumn).append(address);
+
+            var zilaya, kuhnya, marketType, komnat, houseType, leaseType, time  = "";
+
+            if(datarecord.time){
+                var time = "<div style='margin-top: 10px;'><b>Время публикации:</b> " + datarecord.time + "</div>";
+            }
+
+            if(datarecord.zilaya){
+                zilaya = "<div style='margin-top: 10px;'><b>Жилая площадь:</b> " + datarecord.zilaya + "</div>";
+            }
+
+            if(datarecord.kuhnya){
+                kuhnya = "<div style='margin-top: 10px;'><b>Площадь кухни:</b> " + datarecord.kuhnya + "</div>";
+            }
+
+            if(datarecord.marketType){
+                marketType = "<div style='margin-top: 10px;'><b>Тип рынка:</b> " + datarecord.marketType + "</div>";
+            }
+
+            if(datarecord.komnat){
+                komnat = "<div style='margin-top: 10px;'><b>Число комнат:</b> " + datarecord.komnat + "</div>";
+            }
+
+            if(datarecord.houseType){
+                houseType = "<div style='margin-top: 10px;'><b>Тип дома:</b> " + datarecord.houseType + "</div>";
+            }
+
+            if(datarecord.leaseType){
+                leaseType = "<div style='margin-top: 10px;'><b>Срок аренды:</b> " + datarecord.leaseType + "</div>";
             }
 
 
-            var firstname = "<div style='margin: 10px;'><b>First Name:</b> " + datarecord.name + "</div>";
-            var lastname = "<div style='margin: 10px;'><b>Last Name:</b> " + datarecord.name + "</div>";
-            var title = "<div style='margin: 10px;'><b>Title:</b> " + datarecord.contact + "</div>";
-            var address = "<div style='margin: 10px;'><b>Address:</b> " + datarecord.address + "</div>";
-            $(leftcolumn).append(firstname);
-            $(leftcolumn).append(lastname);
-            $(leftcolumn).append(title);
-            $(leftcolumn).append(address);
-            var postalcode = "<div style='margin: 10px;'><b>Postal Code:</b> " + datarecord.contact + "</div>";
-            var city = "<div style='margin: 10px;'><b>City:</b> " + datarecord.name + "</div>";
-            var phone = "<div style='margin: 10px;'><b>Phone:</b> " + datarecord.contact + "</div>";
-            var hiredate = "<div style='margin: 10px;'><b>Hire Date:</b> " + datarecord.contact + "</div>";
-            $(rightcolumn).append(postalcode);
-            $(rightcolumn).append(city);
-            $(rightcolumn).append(phone);
-            $(rightcolumn).append(hiredate);
-            var notescontainer = $('<div style="white-space: normal; margin: 5px;"><span>' + datarecord.contact + '</span></div>');
+            $(rightcolumn).append(time);
+            $(rightcolumn).append(zilaya);
+            $(rightcolumn).append(kuhnya);
+            $(rightcolumn).append(komnat);
+            $(rightcolumn).append(marketType);
+            $(rightcolumn).append(houseType);
+            $(rightcolumn).append(leaseType);
+            var notescontainer = $('<div style="white-space: normal; margin: 5px;"><span>' + datarecord.text + '</span></div>');
             $(notes).append(notescontainer);
             $(tabsdiv).jqxTabs({ width: 1050, height: 170});
         }
