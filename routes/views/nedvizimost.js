@@ -354,7 +354,7 @@ exports = module.exports = function(req, res) {
                                 //eval('whereObj='+whereString);
                                // whereObj = eval(whereString);
 
-                               console.log("whereObj " + JSON.stringify(whereObj));
+                              console.log("whereObj " + JSON.stringify(whereObj));
 
                             }
 
