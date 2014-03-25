@@ -36,10 +36,10 @@ exports = module.exports = function(req, res) {
 
         if (req.query.pagesize) {
 
-           var totalRows, greater, less, skip, limit, filterscount = 0;
-           var sortdatafield, sortorder, dataJson = "";
+           var totalRows, greater, less, skip, limit, filterscount, filteroperator = 0;
+           var sortdatafield, sortorder, dataJson, filtercondition, filterdatafield, filtervalue, whereString, tmpdatafield, tmpfilteroperator  = "";
            var sortObj = {};
-
+           var whereObj = {};
 
             keystone.list('Nedvizimost').model.count().exec(function(err, count) {
 
@@ -53,11 +53,316 @@ exports = module.exports = function(req, res) {
 
 
                 filterscount = req.query.filterscount;
+
                 if (filterscount != "") {
                     if (filterscount > 0) {
+
+                        whereObj['$and'] = [];
+
+                        tmpdatafield = "";
+                        tmpfilteroperator = 0;
+
                         for (var i = 0; i < filterscount; i++) {
 
+                            filtercondition = req.query['filtercondition' + i];
+                            filterdatafield = req.query['filterdatafield' + i];
+                            filtervalue = req.query['filtervalue' + i];
+                            filteroperator = req.query['filteroperator' + i];
+
                             console.log("filterscount " + filterscount);
+                            console.log("filtercondition " + filtercondition);
+                            console.log("filterdatafield " + filterdatafield);
+                            console.log("filtervalue " + filtervalue);
+                            console.log("filteroperator " + filteroperator);
+                            console.log("tmpdatafield " + tmpdatafield);
+                            console.log("tmpfilteroperator " + tmpfilteroperator);
+
+
+                            whereObj['$and'][i] = {};
+
+                            // Если начало оператора ИЛИ
+                            if (filteroperator == 1 && tmpfilteroperator == 0){
+                                if(whereObj['$and'][i]['$or'] == undefined){
+
+                                    whereObj['$and'][i]['$or'] = [];
+                                    whereObj['$and'][i]['$or'][0] = {};
+                                    whereObj['$and'][i]['$or'][1] = {};
+
+                                }
+                            }
+
+                            // build the "WHERE" clause depending on the filter's condition, value and datafield.
+                            switch(filtercondition)
+                            {
+                                case "NULL":
+                                case "EMPTY":
+                                    //whereString += '"' + filterdatafield + '": { "$exists": "false" }';
+                                  // whereString += filterdatafield + ': "{ $exists: false }"';
+                                   // whereObj[filterdatafield] = { $exists: false };
+
+                                    // или первое
+                                    if (filteroperator == 1 && tmpfilteroperator == 0){
+                                        whereObj['$and'][i]['$or'][0][filterdatafield] = { $exists: false };
+                                        //$and
+                                    // или второе - пишем в тотже i что и предыдущий OR иначе пустые ячейки
+                                    } else if (filteroperator == 1 && tmpfilteroperator == 1) {
+                                        var prev = i-1;
+                                        whereObj['$and'][prev]['$or'][1][filterdatafield] = { $exists: false };
+                                    // обычное и
+                                    } else {
+                                        whereObj['$and'][i][filterdatafield] = { $exists: false };
+                                    }
+
+                                    
+                                    break;
+                                case "NOT_NULL":
+                                case "NOT_EMPTY":
+
+                                    // или первое
+                                    if (filteroperator == 1 && tmpfilteroperator == 0){
+                                        whereObj['$and'][i]['$or'][0][filterdatafield] = { $exists: true };
+                                        //$and
+                                        // или второе
+                                    } else if (filteroperator == 1 && tmpfilteroperator == 1) {
+                                        var prev = i-1;
+                                        whereObj['$and'][prev]['$or'][1][filterdatafield] = { $exists: true };
+                                        // обычное и
+                                    } else {
+                                        whereObj['$and'][i][filterdatafield] = { $exists: true };
+                                    }
+                                    
+                                    break;
+                                case "STARTS_WITH_CASE_SENSITIVE":
+
+                                    var regexpObj = new RegExp('^ ?'+filtervalue);
+
+                                    // или первое
+                                    if (filteroperator == 1 && tmpfilteroperator == 0){
+                                        whereObj['$and'][i]['$or'][0][filterdatafield] = { $regex: regexpObj };
+                                        //$and
+                                        // или второе
+                                    } else if (filteroperator == 1 && tmpfilteroperator == 1) {
+                                        var prev = i-1;
+                                        whereObj['$and'][prev]['$or'][1][filterdatafield] = { $regex: regexpObj };
+                                        // обычное и
+                                    } else {
+                                        whereObj['$and'][i][filterdatafield] = { $regex: regexpObj };
+                                    }
+
+                                     // Option i - case insensitive
+                                    //field: { $regex: 'acme.*corp', $options: 'i' }
+                                   // name: new RegExp(search)
+
+                                    
+                                    break;
+                                case "ENDS_WITH_CASE_SENSITIVE":
+                                  //  (.+my)$
+
+                                    var regexpObj = new RegExp('(.+' + filtervalue + ' ?)$');
+
+                                    // или первое
+                                    if (filteroperator == 1 && tmpfilteroperator == 0){
+                                        whereObj['$and'][i]['$or'][0][filterdatafield] = { $regex: regexpObj };
+                                        //$and
+                                        // или второе
+                                    } else if (filteroperator == 1 && tmpfilteroperator == 1) {
+                                        var prev = i-1;
+                                        whereObj['$and'][prev]['$or'][1][filterdatafield] = { $regex: regexpObj };
+                                        // обычное и
+                                    } else {
+                                        whereObj['$and'][i][filterdatafield] = { $regex: regexpObj };
+                                    }
+                                    
+                                    break;
+                                case "CONTAINS_CASE_SENSITIVE":
+                                    //  (.+my)$
+
+                                    var regexpObj = new RegExp('(.*' + filtervalue + '.*)');
+
+                                    // или первое
+                                    if (filteroperator == 1 && tmpfilteroperator == 0){
+                                        whereObj['$and'][i]['$or'][0][filterdatafield] = { $regex: regexpObj };
+                                        //$and
+                                        // или второе
+                                    } else if (filteroperator == 1 && tmpfilteroperator == 1) {
+                                        var prev = i-1;
+                                        whereObj['$and'][prev]['$or'][1][filterdatafield] = { $regex: regexpObj };
+                                        // обычное и
+                                    } else {
+                                        whereObj['$and'][i][filterdatafield] = { $regex: regexpObj };
+                                    }
+                                    
+                                    break;
+                                case "DOES_NOT_CONTAIN_CASE_SENSITIVE":
+
+                                    // ^((?!hede).)*$
+                                    var regexpObj = new RegExp('^((?!' + filtervalue + ').)*$');
+
+                                    // или первое
+                                    if (filteroperator == 1 && tmpfilteroperator == 0){
+                                        whereObj['$and'][i]['$or'][0][filterdatafield] = { $regex: regexpObj };
+                                        //$and
+                                        // или второе
+                                    } else if (filteroperator == 1 && tmpfilteroperator == 1) {
+                                        var prev = i-1;
+                                        whereObj['$and'][prev]['$or'][1][filterdatafield] = { $regex: regexpObj };
+                                        // обычное и
+                                    } else {
+                                        whereObj['$and'][i][filterdatafield] = { $regex: regexpObj };
+                                    }
+                                    
+                                    break;
+                                case "CONTAINS":
+                                    var regexpObj = new RegExp('(.*' + filtervalue + '.*)');
+
+                                    // или первое
+                                    if (filteroperator == 1 && tmpfilteroperator == 0){
+                                        whereObj['$and'][i]['$or'][0][filterdatafield] = { $regex: regexpObj, $options: 'i' };
+                                        //$and
+                                        // или второе
+                                    } else if (filteroperator == 1 && tmpfilteroperator == 1) {
+                                        var prev = i-1;
+                                        whereObj['$and'][prev]['$or'][1][filterdatafield] = { $regex: regexpObj, $options: 'i' };
+                                        // обычное и
+                                    } else {
+                                        whereObj['$and'][i][filterdatafield] = { $regex: regexpObj, $options: 'i' };
+                                    }
+                                    
+                                    break;
+                                case "DOES_NOT_CONTAIN":
+                                    var regexpObj = new RegExp('^((?!' + filtervalue + ').)*$');
+
+                                    // или первое
+                                    if (filteroperator == 1 && tmpfilteroperator == 0){
+                                        whereObj['$and'][i]['$or'][0][filterdatafield] = { $regex: regexpObj, $options: 'i' };
+                                        //$and
+                                        // или второе
+                                    } else if (filteroperator == 1 && tmpfilteroperator == 1) {
+                                        var prev = i-1;
+                                        whereObj['$and'][prev]['$or'][1][filterdatafield] = { $regex: regexpObj, $options: 'i' };
+                                        // обычное и
+                                    } else {
+                                        whereObj['$and'][i][filterdatafield] = { $regex: regexpObj, $options: 'i' };
+                                    }
+                                    
+                                    break;
+                                case "EQUAL":
+
+
+                                    // Если число
+                                    var testNum = filtervalue.replace(/\d/g, "");
+
+                                    if (testNum == ""){
+
+
+
+                                        // или первое
+                                        if (filteroperator == 1 && tmpfilteroperator == 0){
+                                            whereObj['$and'][i]['$or'][0][filterdatafield] =  parseInt(filtervalue);
+                                            //$and
+                                            // или второе
+                                        } else if (filteroperator == 1 && tmpfilteroperator == 1) {
+                                            var prev = i-1;
+                                            whereObj['$and'][prev]['$or'][1][filterdatafield] = parseInt(filtervalue);
+                                            // обычное и
+                                        } else {
+                                            whereObj['$and'][i][filterdatafield] = parseInt(filtervalue);
+                                        }
+
+
+                                    } else {
+
+                                        //^ *(my test data) *$
+                                        var regexpObj = new RegExp('^ *(' + filtervalue + ') *$');
+
+                                        // или первое
+                                        if (filteroperator == 1 && tmpfilteroperator == 0){
+                                            whereObj['$and'][i]['$or'][0][filterdatafield] = { $regex: regexpObj };
+                                            //$and
+                                            // или второе
+                                        } else if (filteroperator == 1 && tmpfilteroperator == 1) {
+                                            var prev = i-1;
+                                            whereObj['$and'][prev]['$or'][1][filterdatafield] = { $regex: regexpObj };
+                                            // обычное и
+                                        } else {
+                                            whereObj['$and'][i][filterdatafield] = { $regex: regexpObj };
+                                        }
+
+                                    }
+
+
+                                    
+                                    break;
+                                case "NOT_EQUAL":
+                                    whereString[filterdatafield] = { $exists: true };
+                                    
+                                    break;
+                                case "GREATER_THAN":
+                                    whereString[filterdatafield] = { $exists: true };
+                                    
+                                    break;
+                                case "LESS_THAN":
+                                    whereString[filterdatafield] = { $exists: true };
+                                    
+                                    break;
+                                case "GREATER_THAN_OR_EQUAL":
+                                    whereString[filterdatafield] = { $exists: true };
+                                    
+                                    break;
+                                case "LESS_THAN_OR_EQUAL":
+                                    whereString[filterdatafield] = { $exists: true };
+                                    
+                                    break;
+                                case "STARTS_WITH":
+                                    whereString[filterdatafield] = { $exists: true };
+                                    
+                                    break;
+                                case "ENDS_WITH":
+                                    whereString[filterdatafield] = { $exists: true };
+                                    
+                                    break;
+                            }
+
+
+
+                            if (tmpdatafield == filterdatafield)
+                            {
+
+                            }
+
+                            // Если конец оператора ИЛИ
+                            if (filteroperator == 1 && tmpfilteroperator == 1){
+
+                                tmpfilteroperator = 0;
+
+                            } else {
+
+                                tmpfilteroperator = filteroperator;
+                            }
+
+
+                            if (i == filterscount - 1)
+                            {
+                                whereString += " }";
+
+                              //  console.log("whereString " + whereString);
+
+
+
+
+                                //whereObj = JSON.parse(whereString);
+                                //eval('whereObj='+whereString);
+                               // whereObj = eval(whereString);
+
+                               console.log("whereObj " + JSON.stringify(whereObj));
+
+                            }
+
+
+                            tmpdatafield = filterdatafield;
+
+
+
 
                         }
                     }
@@ -79,12 +384,16 @@ exports = module.exports = function(req, res) {
                     sortdatafield = req.query.sortdatafield;
                     sortObj[sortdatafield] = sortorder;
 
-                    keystone.list('Nedvizimost').model.find({}).sort(sortObj).skip(skip).limit(limit).exec(function (err, data) {
+                  //  whereObj[filterdatafield] =  { $exists: true };
+
+                   // console.log("whereObj.2 " + whereObj[filterdatafield]["$exists"]);
+
+                    keystone.list('Nedvizimost').model.find(whereObj).sort(sortObj).skip(skip).limit(limit).exec(function (err, data) {
                        return res.json(200, [ {TotalRows: totalRows}, { Rows: data } ]);
                        res.end();
                     });
                 } else {
-                    keystone.list('Nedvizimost').model.find({}).skip(skip).limit(limit).exec(function (err, data) {
+                    keystone.list('Nedvizimost').model.find(whereObj).skip(skip).limit(limit).exec(function (err, data) {
                         return res.json(200, [ {TotalRows: totalRows}, { Rows: data } ]);
                         res.end();
                     });
