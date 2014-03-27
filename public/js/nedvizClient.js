@@ -9,7 +9,7 @@ var source =
     sortcolumn: 'date',
     sortdirection: 'desc',
     datafields: [
-        { name: 'new', type: 'string'},
+        { name: 'new', type: 'int'},
         { name: 'date', type: 'date'},
         { name: 'name', type: 'string'},
         { name: 'category', type: 'string'},
@@ -21,7 +21,7 @@ var source =
         { name: 'plosh', type: 'string'},
         { name: 'price', type: 'int'},
         { name: 'photos', type: 'string'},
-        { name: 'contact', type: 'string'},
+        { name: 'contact', type: 'int'},
 
         { name: 'ids', type: 'int'},
 
@@ -136,13 +136,9 @@ var initrowdetails = function (index, parentElement, gridElement, datarecord) {
 
                 });
 
-
                 photocolumn.append(photo);
-
-
                 $(".boxer").boxer("destroy");
                 $(".boxer").boxer();
-
 
 
             } else {
@@ -307,6 +303,16 @@ var getLocalization = function () {
 }
 
 
+
+var cellsrenderer = function (row, columnfield, value, defaulthtml, columnproperties) {
+        if (value < 1) {
+            return '<span style="margin: 4px; float: ' + columnproperties.cellsalign + '; color: #0000ff;">' + value + '</span>';
+        }
+        else {
+            return '<span style="margin: 4px; float: ' + columnproperties.cellsalign + '; color: #008000;">' + value + '</span>';
+        }
+}
+
 // initialize jqxGrid
 $("#jqxgrid").jqxGrid(
             {
@@ -333,7 +339,7 @@ $("#jqxgrid").jqxGrid(
                 return obj.data;
                 },
                 columns: [
-                        { text: 'Новое', datafield: 'new', width: 60 },
+                        { text: 'Новое', datafield: 'new', width: 60, cellsalign: 'right', cellsrenderer: cellsrenderer },
                         { text: 'Добавлено', datafield: 'date', width: 100, cellsformat: 'd' },
                         { text: 'Город', datafield: 'name', width: 100 },
                         { text: 'Объект', datafield: 'category', width: 100 },
@@ -344,7 +350,7 @@ $("#jqxgrid").jqxGrid(
                         { text: 'Эт-ть', datafield: 'etazost', width: 50 },
                         { text: 'Площадь', datafield: 'plosh', width: 70 },
                         { text: 'Цена', datafield: 'price', width: 140, cellsformat: 'c' },
-                        { text: 'Телефон', datafield: 'contact', width: 100, cellsformat: 'n' }
+                        { text: 'Телефон', datafield: 'contact', width: 100 }
                         ]
 });
 

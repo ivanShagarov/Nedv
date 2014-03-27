@@ -19,7 +19,7 @@ var Ned = new keystone.List('Nedvizimost', {
 Ned.add({
     name: { type: String, required: true, label: "Город"  },
     ids: { type: Types.Number, index: true },      // id ломает все нахер!
-    new: { type: Types.Text, initial: true, label: "Новая"   },
+    new: { type: Types.Number, initial: true, label: "Новая"   },
     category: { type: Types.Text, initial: true, label: "Категория"   },
     typeobyavl: { type: Types.Text, initial: true, label: "Тип объявления"   },
     raion: { type: Types.Text, initial: true, label: "Район"   },

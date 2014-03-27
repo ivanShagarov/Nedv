@@ -40,6 +40,7 @@ exports = module.exports = function(req, res) {
            var sortdatafield, sortorder, dataJson, filtercondition, filterdatafield, filtervalue, whereString, tmpdatafield, tmpfilteroperator  = "";
            var sortObj = {};
            var whereObj = {};
+           var specialChars = "!@#$^&%*()+=[]\/{}|:<>?";
 
             keystone.list('Nedvizimost').model.count().exec(function(err, count) {
 
@@ -77,6 +78,11 @@ exports = module.exports = function(req, res) {
                             console.log("tmpdatafield " + tmpdatafield);
                             console.log("tmpfilteroperator " + tmpfilteroperator);
 
+                            if(filtervalue){
+                                for (var it = 0; it < specialChars.length; it++) {
+                                    filtervalue = filtervalue.replace(new RegExp("\\" + specialChars[it], 'gi'), '');
+                                }
+                            }
 
                             whereObj['$and'][i] = {};
 
@@ -231,7 +237,6 @@ exports = module.exports = function(req, res) {
                                     break;
                                 case "DOES_NOT_CONTAIN":
                                     var regexpObj = new RegExp('^((?!' + filtervalue + ').)*$');
-
                                     // или первое
                                     if (filteroperator == 1 && tmpfilteroperator == 0){
                                         whereObj['$and'][i]['$or'][0][filterdatafield] = { $regex: regexpObj, $options: 'i' };
@@ -248,14 +253,9 @@ exports = module.exports = function(req, res) {
                                     break;
                                 case "EQUAL":
 
-
                                     // Если число
                                     var testNum = filtervalue.replace(/\d/g, "");
-
                                     if (testNum == ""){
-
-
-
                                         // или первое
                                         if (filteroperator == 1 && tmpfilteroperator == 0){
                                             whereObj['$and'][i]['$or'][0][filterdatafield] =  parseInt(filtervalue);
@@ -268,13 +268,80 @@ exports = module.exports = function(req, res) {
                                         } else {
                                             whereObj['$and'][i][filterdatafield] = parseInt(filtervalue);
                                         }
-
-
                                     } else {
-
                                         //^ *(my test data) *$
                                         var regexpObj = new RegExp('^ *(' + filtervalue + ') *$');
+                                        // или первое
+                                        if (filteroperator == 1 && tmpfilteroperator == 0){
+                                            whereObj['$and'][i]['$or'][0][filterdatafield] = { $regex: regexpObj, $options: 'i' };
+                                            //$and
+                                            // или второе
+                                        } else if (filteroperator == 1 && tmpfilteroperator == 1) {
+                                            var prev = i-1;
+                                            whereObj['$and'][prev]['$or'][1][filterdatafield] = { $regex: regexpObj, $options: 'i' };
+                                            // обычное и
+                                        } else {
+                                            whereObj['$and'][i][filterdatafield] = { $regex: regexpObj, $options: 'i' };
+                                        }
+                                    }
+                                    
+                                    break;
+                                case "NOT_EQUAL":
 
+                                    // Если число
+                                    var testNum = filtervalue.replace(/\d/g, "");
+                                    if (testNum == ""){
+                                        // или первое
+                                        if (filteroperator == 1 && tmpfilteroperator == 0){
+                                            whereObj['$and'][i]['$or'][0][filterdatafield] = { $ne: parseInt(filtervalue) };
+                                            //$and
+                                            // или второе
+                                        } else if (filteroperator == 1 && tmpfilteroperator == 1) {
+                                            var prev = i-1;
+                                            whereObj['$and'][prev]['$or'][1][filterdatafield] = { $ne: parseInt(filtervalue) };
+                                            // обычное и
+                                        } else {
+                                            whereObj['$and'][i][filterdatafield] = { $ne: parseInt(filtervalue) };
+                                        }
+                                    } else {
+                                        //^ *(my test data) *$
+                                        var regexpObj = new RegExp('^((?!' + filtervalue + ').)*$');
+                                        // или первое
+                                        if (filteroperator == 1 && tmpfilteroperator == 0){
+                                            whereObj['$and'][i]['$or'][0][filterdatafield] = { $regex: regexpObj, $options: 'i' };
+                                            //$and
+                                            // или второе
+                                        } else if (filteroperator == 1 && tmpfilteroperator == 1) {
+                                            var prev = i-1;
+                                            whereObj['$and'][prev]['$or'][1][filterdatafield] = { $regex: regexpObj, $options: 'i' };
+                                            // обычное и
+                                        } else {
+                                            whereObj['$and'][i][filterdatafield] = { $regex: regexpObj, $options: 'i' };
+                                        }
+                                    }
+                                    
+                                    break;
+
+                                case "EQUAL_CASE_SENSITIVE":
+
+                                    // Если число
+                                    var testNum = filtervalue.replace(/\d/g, "");
+                                    if (testNum == ""){
+                                        // или первое
+                                        if (filteroperator == 1 && tmpfilteroperator == 0){
+                                            whereObj['$and'][i]['$or'][0][filterdatafield] =  parseInt(filtervalue);
+                                            //$and
+                                            // или второе
+                                        } else if (filteroperator == 1 && tmpfilteroperator == 1) {
+                                            var prev = i-1;
+                                            whereObj['$and'][prev]['$or'][1][filterdatafield] = parseInt(filtervalue);
+                                            // обычное и
+                                        } else {
+                                            whereObj['$and'][i][filterdatafield] = parseInt(filtervalue);
+                                        }
+                                    } else {
+                                        //^ *(my test data) *$
+                                        var regexpObj = new RegExp('^ *(' + filtervalue + ') *$');
                                         // или первое
                                         if (filteroperator == 1 && tmpfilteroperator == 0){
                                             whereObj['$and'][i]['$or'][0][filterdatafield] = { $regex: regexpObj };
@@ -287,38 +354,125 @@ exports = module.exports = function(req, res) {
                                         } else {
                                             whereObj['$and'][i][filterdatafield] = { $regex: regexpObj };
                                         }
-
                                     }
+                                    break;
 
 
-                                    
-                                    break;
-                                case "NOT_EQUAL":
-                                    whereString[filterdatafield] = { $exists: true };
-                                    
-                                    break;
                                 case "GREATER_THAN":
-                                    whereString[filterdatafield] = { $exists: true };
+                                    // Если число
+                                    var testNum = filtervalue.replace(/\d/g, "");
+                                    if (testNum == ""){
+                                        // или первое
+                                        if (filteroperator == 1 && tmpfilteroperator == 0){
+                                            whereObj['$and'][i]['$or'][0][filterdatafield] = { $gt: parseInt(filtervalue) };
+                                            //$and
+                                            // или второе
+                                        } else if (filteroperator == 1 && tmpfilteroperator == 1) {
+                                            var prev = i-1;
+                                            whereObj['$and'][prev]['$or'][1][filterdatafield] = { $gt: parseInt(filtervalue) };
+                                            // обычное и
+                                        } else {
+                                            whereObj['$and'][i][filterdatafield] = { $gt: parseInt(filtervalue) };
+                                        }
+                                    } else {
+                                          // Для строк нет такой операции
+                                    }
                                     
                                     break;
                                 case "LESS_THAN":
-                                    whereString[filterdatafield] = { $exists: true };
+                                    // Если число
+                                    var testNum = filtervalue.replace(/\d/g, "");
+                                    if (testNum == ""){
+                                        // или первое
+                                        if (filteroperator == 1 && tmpfilteroperator == 0){
+                                            whereObj['$and'][i]['$or'][0][filterdatafield] = { $lt: parseInt(filtervalue) };
+                                            //$and
+                                            // или второе
+                                        } else if (filteroperator == 1 && tmpfilteroperator == 1) {
+                                            var prev = i-1;
+                                            whereObj['$and'][prev]['$or'][1][filterdatafield] = { $lt: parseInt(filtervalue) };
+                                            // обычное и
+                                        } else {
+                                            whereObj['$and'][i][filterdatafield] = { $lt: parseInt(filtervalue) };
+                                        }
+                                    } else {
+                                        // Для строк нет такой операции
+                                    }
                                     
                                     break;
                                 case "GREATER_THAN_OR_EQUAL":
-                                    whereString[filterdatafield] = { $exists: true };
+                                    // Если число
+                                    var testNum = filtervalue.replace(/\d/g, "");
+                                    if (testNum == ""){
+                                        // или первое
+                                        if (filteroperator == 1 && tmpfilteroperator == 0){
+                                            whereObj['$and'][i]['$or'][0][filterdatafield] = { $gte: parseInt(filtervalue) };
+                                            //$and
+                                            // или второе
+                                        } else if (filteroperator == 1 && tmpfilteroperator == 1) {
+                                            var prev = i-1;
+                                            whereObj['$and'][prev]['$or'][1][filterdatafield] = { $gte: parseInt(filtervalue) };
+                                            // обычное и
+                                        } else {
+                                            whereObj['$and'][i][filterdatafield] = { $gte: parseInt(filtervalue) };
+                                        }
+                                    } else {
+                                        // Для строк нет такой операции
+                                    }
                                     
                                     break;
                                 case "LESS_THAN_OR_EQUAL":
-                                    whereString[filterdatafield] = { $exists: true };
+                                    // Если число
+                                    var testNum = filtervalue.replace(/\d/g, "");
+                                    if (testNum == ""){
+                                        // или первое
+                                        if (filteroperator == 1 && tmpfilteroperator == 0){
+                                            whereObj['$and'][i]['$or'][0][filterdatafield] = { $lte: parseInt(filtervalue) };
+                                            //$and
+                                            // или второе
+                                        } else if (filteroperator == 1 && tmpfilteroperator == 1) {
+                                            var prev = i-1;
+                                            whereObj['$and'][prev]['$or'][1][filterdatafield] = { $lte: parseInt(filtervalue) };
+                                            // обычное и
+                                        } else {
+                                            whereObj['$and'][i][filterdatafield] = { $lte: parseInt(filtervalue) };
+                                        }
+                                    } else {
+                                        // Для строк нет такой операции
+                                    }
                                     
                                     break;
                                 case "STARTS_WITH":
-                                    whereString[filterdatafield] = { $exists: true };
+                                    var regexpObj = new RegExp('^ ?'+filtervalue);
+                                    // или первое
+                                    if (filteroperator == 1 && tmpfilteroperator == 0){
+                                        whereObj['$and'][i]['$or'][0][filterdatafield] = { $regex: regexpObj, $options: 'i' };
+                                        //$and
+                                        // или второе
+                                    } else if (filteroperator == 1 && tmpfilteroperator == 1) {
+                                        var prev = i-1;
+                                        whereObj['$and'][prev]['$or'][1][filterdatafield] = { $regex: regexpObj, $options: 'i' };
+                                        // обычное и
+                                    } else {
+                                        whereObj['$and'][i][filterdatafield] = { $regex: regexpObj, $options: 'i' };
+                                    }
                                     
                                     break;
                                 case "ENDS_WITH":
-                                    whereString[filterdatafield] = { $exists: true };
+
+                                    var regexpObj = new RegExp('(.+' + filtervalue + ' ?)$');
+                                    // или первое
+                                    if (filteroperator == 1 && tmpfilteroperator == 0){
+                                        whereObj['$and'][i]['$or'][0][filterdatafield] = { $regex: regexpObj, $options: 'i' };
+                                        //$and
+                                        // или второе
+                                    } else if (filteroperator == 1 && tmpfilteroperator == 1) {
+                                        var prev = i-1;
+                                        whereObj['$and'][prev]['$or'][1][filterdatafield] = { $regex: regexpObj, $options: 'i' };
+                                        // обычное и
+                                    } else {
+                                        whereObj['$and'][i][filterdatafield] = { $regex: regexpObj, $options: 'i' };
+                                    }
                                     
                                     break;
                             }
