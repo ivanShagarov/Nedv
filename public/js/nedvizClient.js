@@ -146,6 +146,9 @@ var initrowdetails = function (index, parentElement, gridElement, datarecord) {
                 photocolumn.append('<p style="margin: 10px;">Без фото</p>');
             }
 
+
+            //alert("pers111 " + datarecord.persname);
+
             var persname, contname, agent, address = "";
 
             if(datarecord.persname){
@@ -213,6 +216,15 @@ var initrowdetails = function (index, parentElement, gridElement, datarecord) {
 
 
 var dataadapter = new $.jqx.dataAdapter(source, {
+    loadComplete: function (data) {
+
+        var datainformation = $("#jqxgrid").jqxGrid('getdatainformation');
+        for (i = 0; i < datainformation.rowscount; i++) {
+            var hidden = i > 0 ? true : false;
+            $("#jqxgrid").jqxGrid('setrowdetails', i, "<div style='margin: 10px;'><ul style='margin-left: 30px;'><li class='title'></li><li>Описание:</li></ul><div class='information'></div><div class='notes'></div></div>", 220, hidden);
+        }
+
+    },
     loadError: function(xhr, status, error)
     {
     alert(error);
@@ -306,10 +318,11 @@ var getLocalization = function () {
 
 var cellsrenderer = function (row, columnfield, value, defaulthtml, columnproperties) {
         if (value < 1) {
-            return '<span style="margin: 4px; float: ' + columnproperties.cellsalign + '; color: #0000ff;">' + value + '</span>';
+            return '<span></span>';
         }
         else {
-            return '<span style="margin: 4px; float: ' + columnproperties.cellsalign + '; color: #008000;">' + value + '</span>';
+            //newstarred.png
+            return '<div style="background-image:url(\'/images/iconnew.png\'); margin-left: 16px; margin-top: 4px; height: 17px; width: 29px; float: ' + columnproperties.cellsalign + '; "></div>';
         }
 }
 
@@ -330,16 +343,21 @@ $("#jqxgrid").jqxGrid(
                 localization: getLocalization(),
                 rowdetails: true,
                 rowdetailstemplate: { rowdetails: "<div style='margin: 10px;'><ul style='margin-left: 30px;'><li class='title'></li><li>Описание:</li></ul><div class='information'></div><div class='notes'></div></div>", rowdetailsheight: 200 },
+
+                /*
                 ready: function () {
                     $("#jqxgrid").jqxGrid('showrowdetails', 0);
                 },
+                */
+
                 initrowdetails: initrowdetails,
                 rendergridrows: function(obj)
                 {
                 return obj.data;
                 },
+
                 columns: [
-                        { text: 'Новое', datafield: 'new', width: 60, cellsalign: 'right', cellsrenderer: cellsrenderer },
+                        { text: 'Новое', datafield: 'new', width: 60, cellsalign: 'center', cellsrenderer: cellsrenderer },
                         { text: 'Добавлено', datafield: 'date', width: 100, cellsformat: 'd' },
                         { text: 'Город', datafield: 'name', width: 100 },
                         { text: 'Объект', datafield: 'category', width: 100 },
@@ -350,14 +368,16 @@ $("#jqxgrid").jqxGrid(
                         { text: 'Эт-ть', datafield: 'etazost', width: 50 },
                         { text: 'Площадь', datafield: 'plosh', width: 70 },
                         { text: 'Цена', datafield: 'price', width: 140, cellsformat: 'c' },
-                        { text: 'Телефон', datafield: 'contact', width: 100 }
+                        { text: 'Телефон', datafield: 'contact', width: 100, filterable: false }
                         ]
 });
 
-
-
-
-
+    /*
+    // set row details.
+    $("#jqxgrid").jqxGrid('initrowdetails: initrowdetails');
+    $("#jqxgrid").jqxGrid('setrowdetails', 0, "<div class='tabs0' style='margin: 10px;'><ul style='margin-left: 30px;'><li>Nancy Davolio</li><li>Notes</li></ul><div class='information0'></div><div class='notes0'></div></div>", 200, false);
+    $("#jqxgrid").jqxGrid('resumeupdate');
+    */
 
 
 });
