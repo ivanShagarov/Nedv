@@ -7,6 +7,8 @@ exports = module.exports = function(req, res) {
     locals = res.locals;
     locals.data = {
         nedvCount: "",
+        cityNames: [ "Орел", "Болхов", "Верховье", "Дмитровск", "Кромы", "Ливны", "Мценск", "Нарышкино", "Кромы", "Новосиль", "Хомутово", "Хотынец" ],
+        cityRaions: [ "Заводской", "Железнодор.", "Советский", "Северный", "Знаменка" ],
         tags: []
     };
 
@@ -23,6 +25,7 @@ exports = module.exports = function(req, res) {
                 locals.data.nedvCount = count;
                 console.log("Total " + locals.data.nedvCount);
                 return res.json(200, { status: 'OK', users: 0, Prods: "33" });
+                //res.end();
                 next(err);
             });
         } else {

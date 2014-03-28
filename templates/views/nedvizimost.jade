@@ -1,7 +1,6 @@
 extends ../layouts/default
 
 block css
-    link(href="/keystone/styles/bootstrap/bootstrap.min.css", rel="stylesheet")
     link(href="/js/lib/jqwidgets/styles/jqx.base.css", rel="stylesheet")
     link(href="/styles/boxer/jquery.fs.boxer.css", rel="stylesheet")
 
@@ -11,8 +10,38 @@ block content
         if data.nedvCount
             h3 #{data.nedvCount}
 
+        .form-group
+            .panel
+                .panel-title Фильтр
+                .form-inline
+                    select(name='cityNames', style='margin-top: 10px; margin-right: 10px;').form-control
+                        option(value='') Город
+                            each name in data.cityNames
+                                option(value=name)= name
+                    select(name='cityRaions', style='margin-top: 10px; margin-right: 10px;').form-control
+                        option(value='') Район
+                            each name in data.cityRaions
+                                option(value=name)= name
+
+                    .v-spacer
+                    a(href='#', id='applyFilters', style='margin-top: 10px; margin-right: 10px;').btn.btn-primary Применить
+                    .v-spacer
+
+        .form-group
+            .panel
+                .panel-title Быстрые фильтры
+                .form-inline
+                    if !user
+                        a(href='#' title="Доступно только зарегистрированным пользователям!" data-placement='right', style='margin-top: 10px; margin-right: 10px;').btn.btn-warning Убрать агентов
+                    else
+                        a(href='#', style='margin-top: 10px; margin-right: 10px;').btn.btn-primary Убрать агентов
+                    .v-spacer
+
+
         #jqxWidget
             #jqxgrid
+
+
 //-
     if nedvizimost.length
 
@@ -27,13 +56,11 @@ block content
         .jumbotron.text-center
             .lead.text-muted There are no nedviz in the database.
 
-
-    if !user
-        a(href='#' title="Доступно только зарегистрированным пользователям!" data-placement='right').btn.btn-warning Join SydJS
-    else
-        a(href='#').btn.btn-primary Join SydJS
-
-
+    label(style='margin-top: 10px;') Город
+         select(name='cityNames', style='margin-top: 10px; margin-right: 10px;').form-control
+             option(value='') (Район)
+                 each name in data.cityNames
+                     option(value=name, selected=data.cityNames[0] == name)= name
 
 
 

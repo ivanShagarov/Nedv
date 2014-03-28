@@ -220,7 +220,8 @@ var dataadapter = new $.jqx.dataAdapter(source, {
 
         var datainformation = $("#jqxgrid").jqxGrid('getdatainformation');
         for (i = 0; i < datainformation.rowscount; i++) {
-            var hidden = i > 0 ? true : false;
+            // Установка первого открытого
+            var hidden = i > 0 ? true : true;
             $("#jqxgrid").jqxGrid('setrowdetails', i, "<div style='margin: 10px;'><ul style='margin-left: 30px;'><li class='title'></li><li>Описание:</li></ul><div class='information'></div><div class='notes'></div></div>", 220, hidden);
         }
 
@@ -269,6 +270,7 @@ var getLocalization = function () {
         localizationobj.todaystring = "Сегодня";
         localizationobj.currencysymbol = " Руб.";
         localizationobj.currencysymbolposition = "after";
+        localizationobj.thousandsseparator = " ";
 
         localizationobj.firstDay = 0;
         var days =  {
@@ -315,6 +317,41 @@ var getLocalization = function () {
 }
 
 
+// builds and applies the filter.
+var applyFilter = function (datafield) {
+        $("#jqxgrid").jqxGrid('clearfilters');
+        var filtertype = 'stringfilter';
+        if (datafield == 'date') filtertype = 'datefilter';
+        if (datafield == 'price' || datafield == 'quantity') filtertype = 'numericfilter';
+        var filtergroup = new $.jqx.filter();
+
+    /*
+        var checkedItems = $("#filterbox").jqxListBox('getCheckedItems');
+        if (checkedItems.length == 0) {
+            var filter_or_operator = 1;
+            var filtervalue = "Empty";
+            var filtercondition = 'equal';
+            var filter = filtergroup.createfilter(filtertype, filtervalue, filtercondition);
+            filtergroup.addfilter(filter_or_operator, filter);
+        }
+        else {
+            for (var i = 0; i < checkedItems.length; i++) {
+                var filter_or_operator = 1;
+                var filtervalue = checkedItems[i].label;
+                var filtercondition = 'equal';
+                var filter = filtergroup.createfilter(filtertype, filtervalue, filtercondition);
+                filtergroup.addfilter(filter_or_operator, filter);
+            }
+        }
+    */
+
+        // add the filters.
+        $("#jqxgrid").jqxGrid('addfilter', datafield, filtergroup);
+        // apply the filters.
+        $("#jqxgrid").jqxGrid('applyfilters');
+}
+
+
 
 var cellsrenderer = function (row, columnfield, value, defaulthtml, columnproperties) {
         if (value < 1) {
@@ -339,6 +376,12 @@ $("#jqxgrid").jqxGrid(
                 autoheight: true,
                 pageable: true,
                 columnsresize: true,
+                //
+                enablehover: true,
+                enablebrowserselection: true,
+                selectionmode: 'none',
+                //
+                //autoshowfiltericon: true,
                 virtualmode: true,
                 localization: getLocalization(),
                 rowdetails: true,
@@ -368,7 +411,7 @@ $("#jqxgrid").jqxGrid(
                         { text: 'Эт-ть', datafield: 'etazost', width: 50 },
                         { text: 'Площадь', datafield: 'plosh', width: 70 },
                         { text: 'Цена', datafield: 'price', width: 140, cellsformat: 'c' },
-                        { text: 'Телефон', datafield: 'contact', width: 100, filterable: false }
+                        { text: 'Телефон', datafield: 'contact', width: 100, filterable: false, sortable: false }
                         ]
 });
 
