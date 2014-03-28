@@ -16,9 +16,9 @@ var source =
         { name: 'typeobyavl', type: 'string'},
         { name: 'raion', type: 'string'},
         { name: 'address', type: 'string'},
-        { name: 'etaz', type: 'string'},
-        { name: 'etazost', type: 'string'},
-        { name: 'plosh', type: 'string'},
+        { name: 'etaz', type: 'int'},
+        { name: 'etazost', type: 'int'},
+        { name: 'plosh', type: 'int'},
         { name: 'price', type: 'int'},
         { name: 'photos', type: 'string'},
         { name: 'contact', type: 'int'},
@@ -28,7 +28,7 @@ var source =
         { name: 'zilaya', type: 'int'},
         { name: 'kuhnya', type: 'int'},
         { name: 'marketType', type: 'string'},
-        { name: 'komnat', type: 'int'},
+        { name: 'komnat', type: 'string'},
         { name: 'houseType', type: 'string'},
         { name: 'leaseType', type: 'string'},
         { name: 'persname', type: 'string'},
@@ -318,39 +318,136 @@ var getLocalization = function () {
 
 
 // builds and applies the filter.
-var applyFilter = function (datafield) {
-        $("#jqxgrid").jqxGrid('clearfilters');
-        var filtertype = 'stringfilter';
-        if (datafield == 'date') filtertype = 'datefilter';
-        if (datafield == 'price' || datafield == 'quantity') filtertype = 'numericfilter';
-        var filtergroup = new $.jqx.filter();
+var applyFilter = function (dataFields, dataValues) {
 
-    /*
-        var checkedItems = $("#filterbox").jqxListBox('getCheckedItems');
-        if (checkedItems.length == 0) {
-            var filter_or_operator = 1;
-            var filtervalue = "Empty";
-            var filtercondition = 'equal';
-            var filter = filtergroup.createfilter(filtertype, filtervalue, filtercondition);
-            filtergroup.addfilter(filter_or_operator, filter);
-        }
-        else {
-            for (var i = 0; i < checkedItems.length; i++) {
-                var filter_or_operator = 1;
-                var filtervalue = checkedItems[i].label;
-                var filtercondition = 'equal';
+   // Убрать автоочистку
+   // Очистка фильтров приводит к ошибке bindingcomplete
+   // $("#jqxgrid").jqxGrid('clearfilters');
+   // $("#jqxgrid").bind("bindingcomplete", function (event) { // After binding
+
+       var filtertype = 'stringfilter';
+       var filtercondition = 'contains';
+
+   // alert(dataValues[0]);
+
+        if (dataFields.length == 1) {
+
+            var datafield = dataFields[0];
+            var filtervalue = dataValues[0];
+
+            if(datafield == "komnat" && filtervalue == "Многокомнатные"){
+                var filtergroup = new $.jqx.filter();
+                var notContValues = ["Студии","1","2","3", " "];
+                for (var n = 0; n < notContValues.length; n++) {
+                    filtervalue = notContValues[n];
+                    var filter_or_operator = 0;
+                        if (filtervalue == " "){
+                            filtercondition = "not_empty";
+                        } else {
+                            filtercondition = "does_not_contain";
+                        }
+                    var filter = filtergroup.createfilter(filtertype, filtervalue, filtercondition);
+                    filtergroup.addfilter(filter_or_operator, filter);
+                }
+
+            } else {
+                if (datafield == 'date') {filtertype = 'datefilter'; filtercondition = "equal"; }
+                if (datafield == 'contact' || datafield == 'zilaya' || datafield == 'kuhnya' ||datafield == 'price' || datafield == 'new' || datafield == 'etaz' || datafield == 'etazost' || datafield == 'plosh' || datafield == 'price') { filtertype = 'numericfilter'; filtercondition = "equal"; }
+                var filtergroup = new $.jqx.filter();
+                var filter_or_operator = 0;
                 var filter = filtergroup.createfilter(filtertype, filtervalue, filtercondition);
                 filtergroup.addfilter(filter_or_operator, filter);
+
+            }
+
+            // add the filters.
+            $("#jqxgrid").jqxGrid('addfilter', datafield, filtergroup);
+
+        } else {
+            for (var i = 0; i < dataFields.length; i++) {
+                var datafield = dataFields[i];
+                var filtervalue = dataValues[i];
+                if(datafield == "komnat" && filtervalue == "Многокомнатные"){
+                    var filtergroup = new $.jqx.filter();
+                    var notContValues = ["Студии","1","2","3", " "];
+                        for (var n = 0; n < notContValues.length - 1; n++) {
+                            filtervalue = notContValues[n];
+                            var filter_or_operator = 0;
+                                if (filtervalue == " "){
+                                    filtercondition = "not_empty";
+                                } else {
+                                    filtercondition = "does_not_contain";
+                                }
+                            var filter = filtergroup.createfilter(filtertype, filtervalue, filtercondition);
+                            filtergroup.addfilter(filter_or_operator, filter);
+                        }
+                } else {
+
+                    if (datafield == 'date') {filtertype = 'datefilter'; filtercondition = "equal"; }
+                    if (datafield == 'contact' || datafield == 'zilaya' || datafield == 'kuhnya' ||datafield == 'price' || datafield == 'new' || datafield == 'etaz' || datafield == 'etazost' || datafield == 'plosh' || datafield == 'price') { filtertype = 'numericfilter'; filtercondition = "equal"; }
+                    var filtergroup = new $.jqx.filter();
+                    var filter_or_operator = 0;
+                    var filter = filtergroup.createfilter(filtertype, filtervalue, filtercondition);
+                    filtergroup.addfilter(filter_or_operator, filter);
+                }
+                // add the filters.
+                $("#jqxgrid").jqxGrid('addfilter', datafield, filtergroup);
+
             }
         }
-    */
 
-        // add the filters.
-        $("#jqxgrid").jqxGrid('addfilter', datafield, filtergroup);
+
         // apply the filters.
         $("#jqxgrid").jqxGrid('applyfilters');
+
+   // Убрать автоочистку
+   //$("#jqxgrid").unbind("bindingcomplete");
+   //});
+
+
 }
 
+
+// clears the filter.
+$("#clearFilters").click(function () {
+    $("#jqxgrid").jqxGrid('clearfilters');
+});
+
+// applies the filter.
+$("#applyFilters").click(function () {
+
+    var dataFields = [];
+    var dataValues = [];
+
+    var citySelect = $("#cityNames").val();
+    if(citySelect != ""){
+       // alert(citySelect);
+        dataFields.push("name");
+        dataValues.push(citySelect);
+    }
+
+    var cityRaions = $("#cityRaions").val();
+    if(cityRaions != ""){
+        dataFields.push("raion");
+        dataValues.push(cityRaions);
+    }
+
+    var category = $("#category").val();
+    if(category != ""){
+        dataFields.push("category");
+        dataValues.push(category);
+    }
+
+    var komnat = $("#komnat").val();
+    if(komnat != ""){
+        dataFields.push("komnat");
+        dataValues.push(komnat);
+    }
+
+
+    if(dataFields.length > 0) applyFilter(dataFields, dataValues);
+
+});
 
 
 var cellsrenderer = function (row, columnfield, value, defaulthtml, columnproperties) {
@@ -381,12 +478,18 @@ $("#jqxgrid").jqxGrid(
                 enablebrowserselection: true,
                 selectionmode: 'none',
                 //
+                showfilterrow: false,
                 //autoshowfiltericon: true,
                 virtualmode: true,
                 localization: getLocalization(),
                 rowdetails: true,
                 rowdetailstemplate: { rowdetails: "<div style='margin: 10px;'><ul style='margin-left: 30px;'><li class='title'></li><li>Описание:</li></ul><div class='information'></div><div class='notes'></div></div>", rowdetailsheight: 200 },
 
+                /*
+                ready: function () {
+                    addfilter();
+                },
+                */
                 /*
                 ready: function () {
                     $("#jqxgrid").jqxGrid('showrowdetails', 0);
@@ -411,7 +514,8 @@ $("#jqxgrid").jqxGrid(
                         { text: 'Эт-ть', datafield: 'etazost', width: 50 },
                         { text: 'Площадь', datafield: 'plosh', width: 70 },
                         { text: 'Цена', datafield: 'price', width: 140, cellsformat: 'c' },
-                        { text: 'Телефон', datafield: 'contact', width: 100, filterable: false, sortable: false }
+                        { text: 'Телефон', datafield: 'contact', width: 100, filterable: false, sortable: false },
+                        { text: 'Комнат', datafield: 'komnat', width: 90 }   // , hidden: true
                         ]
 });
 

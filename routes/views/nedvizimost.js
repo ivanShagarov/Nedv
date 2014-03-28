@@ -9,6 +9,8 @@ exports = module.exports = function(req, res) {
         nedvCount: "",
         cityNames: [ "Орел", "Болхов", "Верховье", "Дмитровск", "Кромы", "Ливны", "Мценск", "Нарышкино", "Кромы", "Новосиль", "Хомутово", "Хотынец" ],
         cityRaions: [ "Заводской", "Железнодор.", "Советский", "Северный", "Знаменка" ],
+        category: [ "Квартиры", "Комнаты", "Дома", "Участки", "Гаражи", "Коммерческая", "За рубежом" ],
+        komnat: [ "Студии", "1", "2", "3", "Многокомнатные" ],
         tags: []
     };
 
@@ -104,28 +106,42 @@ exports = module.exports = function(req, res) {
                             switch(filtercondition)
                             {
                                 case "NULL":
-                                case "EMPTY":
-                                    //whereString += '"' + filterdatafield + '": { "$exists": "false" }';
-                                  // whereString += filterdatafield + ': "{ $exists: false }"';
-                                   // whereObj[filterdatafield] = { $exists: false };
 
                                     // или первое
                                     if (filteroperator == 1 && tmpfilteroperator == 0){
                                         whereObj['$and'][i]['$or'][0][filterdatafield] = { $exists: false };
                                         //$and
-                                    // или второе - пишем в тотже i что и предыдущий OR иначе пустые ячейки
+                                        // или второе - пишем в тотже i что и предыдущий OR иначе пустые ячейки
                                     } else if (filteroperator == 1 && tmpfilteroperator == 1) {
                                         var prev = i-1;
                                         whereObj['$and'][prev]['$or'][1][filterdatafield] = { $exists: false };
-                                    // обычное и
+                                        // обычное и
                                     } else {
                                         whereObj['$and'][i][filterdatafield] = { $exists: false };
                                     }
 
+                                    break;
+
+                                case "EMPTY":
+
+
+                                    // или первое
+                                    if (filteroperator == 1 && tmpfilteroperator == 0){
+                                        whereObj['$and'][i]['$or'][0][filterdatafield] = "";
+                                        //$and
+                                    // или второе - пишем в тотже i что и предыдущий OR иначе пустые ячейки
+                                    } else if (filteroperator == 1 && tmpfilteroperator == 1) {
+                                        var prev = i-1;
+                                        whereObj['$and'][prev]['$or'][1][filterdatafield] = "";
+                                    // обычное и
+                                    } else {
+                                        whereObj['$and'][i][filterdatafield] = "";
+                                    }
+
                                     
                                     break;
+
                                 case "NOT_NULL":
-                                case "NOT_EMPTY":
 
                                     // или первое
                                     if (filteroperator == 1 && tmpfilteroperator == 0){
@@ -139,8 +155,26 @@ exports = module.exports = function(req, res) {
                                     } else {
                                         whereObj['$and'][i][filterdatafield] = { $exists: true };
                                     }
+
+                                    break;
+
+                                case "NOT_EMPTY":
+
+                                    // или первое
+                                    if (filteroperator == 1 && tmpfilteroperator == 0){
+                                        whereObj['$and'][i]['$or'][0][filterdatafield] = { $ne: "" };
+                                        //$and
+                                        // или второе
+                                    } else if (filteroperator == 1 && tmpfilteroperator == 1) {
+                                        var prev = i-1;
+                                        whereObj['$and'][prev]['$or'][1][filterdatafield] = { $ne: "" };
+                                        // обычное и
+                                    } else {
+                                        whereObj['$and'][i][filterdatafield] = { $ne: "" };
+                                    }
                                     
                                     break;
+
                                 case "STARTS_WITH_CASE_SENSITIVE":
 
                                     var regexpObj = new RegExp('^ ?'+filtervalue);
