@@ -6,16 +6,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d2c47532-7b30-49aa-9c9c-ec0bea81bff0" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/js/nedvizClient.js" afterPath="$PROJECT_DIR$/public/js/nedvizClient.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/views/nedvizimost.jade" afterPath="$PROJECT_DIR$/templates/views/nedvizimost.jade" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/models/nedvizimost.js" afterPath="$PROJECT_DIR$/models/nedvizimost.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/routes/views/nedvizimost.js" afterPath="$PROJECT_DIR$/routes/views/nedvizimost.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <list id="87f9cf81-7326-42b0-b6e9-ed13305241a3" name="New changelist" comment="" />
     <ignored path="nedv.iws" />
     <ignored path=".idea/workspace.xml" />
-    <file path="/Dummy.txt" changelist="d2c47532-7b30-49aa-9c9c-ec0bea81bff0" time="1396007393508" ignored="false" />
+    <file path="/Dummy.txt" changelist="d2c47532-7b30-49aa-9c9c-ec0bea81bff0" time="1396026451818" ignored="false" />
     <file path="/.gitignore" changelist="d2c47532-7b30-49aa-9c9c-ec0bea81bff0" time="1395235964592" ignored="false" />
     <file path="/signin.jade" changelist="d2c47532-7b30-49aa-9c9c-ec0bea81bff0" time="1395239701617" ignored="false" />
     <file path="/list.jade" changelist="d2c47532-7b30-49aa-9c9c-ec0bea81bff0" time="1395241269155" ignored="false" />
@@ -531,7 +527,7 @@
       <workItem from="1395745711570" duration="29216000" />
       <workItem from="1395906242723" duration="16443000" />
       <workItem from="1395929087958" duration="4250000" />
-      <workItem from="1395987939096" duration="29387000" />
+      <workItem from="1395987939096" duration="29399000" />
     </task>
     <task id="LOCAL-00001" summary="test">
       <created>1395235883060</created>
@@ -613,11 +609,15 @@
       <created>1396007404620</created>
       <updated>1396007404620</updated>
     </task>
-    <option name="localTasksCounter" value="21" />
+    <task id="LOCAL-00021" summary="filter fix3">
+      <created>1396026456877</created>
+      <updated>1396026456877</updated>
+    </task>
+    <option name="localTasksCounter" value="22" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="176562000" />
+    <option name="totallyTimeSpent" value="176574000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-1" y="0" width="1922" height="1061" extended-state="6" />
@@ -687,7 +687,7 @@
     <option name="WRAP_WHEN_TYPING_REACHES_RIGHT_MARGIN" value="false" />
     <option name="FORCE_NON_EMPTY_COMMENT" value="false" />
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="false" />
-    <option name="LAST_COMMIT_MESSAGE" value="filter fix2" />
+    <option name="LAST_COMMIT_MESSAGE" value="filter fix3" />
     <option name="MAKE_NEW_CHANGELIST_ACTIVE" value="false" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_FILES_UP_TO_DATE_BEFORE_COMMIT" value="false" />
@@ -715,6 +715,7 @@
     <MESSAGE value="filter start3" />
     <MESSAGE value="filter fix" />
     <MESSAGE value="filter fix2" />
+    <MESSAGE value="filter fix3" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
