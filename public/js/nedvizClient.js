@@ -351,7 +351,11 @@ var applyFilter = function (dataFields, dataValues) {
                 }
 
             } else {
-                if (datafield == 'date') {filtertype = 'datefilter'; filtercondition = "greater_than_or_equal"; }
+                if (datafield == 'date') {
+                    //filtertype = 'datefilter';
+                   // filtercondition = "greater_than_or_equal";
+                    filtercondition = "greater_than";
+                }
                 if (datafield == 'contact' || datafield == 'zilaya' || datafield == 'kuhnya' ||datafield == 'price' || datafield == 'new' || datafield == 'etaz' || datafield == 'etazost' || datafield == 'plosh' || datafield == 'price') { filtertype = 'numericfilter'; filtercondition = "equal"; }
                 var filtergroup = new $.jqx.filter();
                 var filter_or_operator = 0;
@@ -383,7 +387,10 @@ var applyFilter = function (dataFields, dataValues) {
                         }
                 } else {
 
-                    if (datafield == 'date') {filtertype = 'datefilter'; filtercondition = "greater_than_or_equal"; }
+                    if (datafield == 'date') {
+                        //filtertype = 'datefilter';
+                        filtercondition = "greater_than";
+                    }
                     if (datafield == 'contact' || datafield == 'zilaya' || datafield == 'kuhnya' ||datafield == 'price' || datafield == 'new' || datafield == 'etaz' || datafield == 'etazost' || datafield == 'plosh' || datafield == 'price') { filtertype = 'numericfilter'; filtercondition = "equal"; }
                     var filtergroup = new $.jqx.filter();
                     var filter_or_operator = 0;
@@ -480,19 +487,28 @@ $("#applyFilters").click(function () {
         }
 
         today.setDate(today.getDate() - offset);
-        //period = today.toISOString();
+
 
         var dd = today.getDate();
         var mm = today.getMonth()+1; //January is 0!
         var yyyy = today.getFullYear();
 
-        //period = yyyy + "-" + mm + "-" + dd;
+        //period = today.toISOString();
+        //period = 'ISODate("' + period +'")';
+        //new Date(newDate).getTime()   mm/dd/yyyy  mm+"/"+dd+"/"+yyyy
+       // period = new Date(mm+"/"+dd+"/"+yyyy).getTime();
+
+        if(mm<10) {
+            mm='0'+mm;
+        }
+
+        period = dd+"/"+mm+"/"+yyyy;
 
 
 
         alert(period);
         dataFields.push("date");
-        dataValues.push(today);
+        dataValues.push(period);
     }
 
 
