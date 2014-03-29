@@ -351,7 +351,7 @@ var applyFilter = function (dataFields, dataValues) {
                 }
 
             } else {
-                if (datafield == 'date') {filtertype = 'datefilter'; filtercondition = "equal"; }
+                if (datafield == 'date') {filtertype = 'datefilter'; filtercondition = "greater_than_or_equal"; }
                 if (datafield == 'contact' || datafield == 'zilaya' || datafield == 'kuhnya' ||datafield == 'price' || datafield == 'new' || datafield == 'etaz' || datafield == 'etazost' || datafield == 'plosh' || datafield == 'price') { filtertype = 'numericfilter'; filtercondition = "equal"; }
                 var filtergroup = new $.jqx.filter();
                 var filter_or_operator = 0;
@@ -383,7 +383,7 @@ var applyFilter = function (dataFields, dataValues) {
                         }
                 } else {
 
-                    if (datafield == 'date') {filtertype = 'datefilter'; filtercondition = "equal"; }
+                    if (datafield == 'date') {filtertype = 'datefilter'; filtercondition = "greater_than_or_equal"; }
                     if (datafield == 'contact' || datafield == 'zilaya' || datafield == 'kuhnya' ||datafield == 'price' || datafield == 'new' || datafield == 'etaz' || datafield == 'etazost' || datafield == 'plosh' || datafield == 'price') { filtertype = 'numericfilter'; filtercondition = "equal"; }
                     var filtergroup = new $.jqx.filter();
                     var filter_or_operator = 0;
@@ -442,6 +442,57 @@ $("#applyFilters").click(function () {
     if(komnat != ""){
         dataFields.push("komnat");
         dataValues.push(komnat);
+    }
+
+    var period = $("#period").val();
+    if(period != ""){
+
+       // period: [ "1 день", "2 дня", "3 дня", "Неделя", "2 недели", "3 недели", "Месяц", "Текущий год" ],
+       var today = new Date();
+       var offset = 0;
+
+        switch(period)
+        {
+            case "1 день":
+                offset = 1;
+                break;
+            case "2 дня":
+                offset = 2;
+                break;
+            case "3 дня":
+                offset = 3;
+                break;
+            case "Неделя":
+                offset = 7;
+                break;
+            case "2 недели":
+                offset = 14;
+                break;
+            case "3 недели":
+                offset = 21;
+                break;
+            case "Месяц":
+                offset = 31;
+                break;
+            case "Текущий год":
+                offset = 365;
+                break;
+        }
+
+        today.setDate(today.getDate() - offset);
+        //period = today.toISOString();
+
+        var dd = today.getDate();
+        var mm = today.getMonth()+1; //January is 0!
+        var yyyy = today.getFullYear();
+
+        //period = yyyy + "-" + mm + "-" + dd;
+
+
+
+        alert(period);
+        dataFields.push("date");
+        dataValues.push(today);
     }
 
 
@@ -515,7 +566,7 @@ $("#jqxgrid").jqxGrid(
                         { text: 'Площадь', datafield: 'plosh', width: 70 },
                         { text: 'Цена', datafield: 'price', width: 140, cellsformat: 'c' },
                         { text: 'Телефон', datafield: 'contact', width: 100, filterable: false, sortable: false },
-                        { text: 'Комнат', datafield: 'komnat', width: 90 }   // , hidden: true
+                        { text: 'Комнат', datafield: 'komnat', width: 90, hidden: true }   // , hidden: true
                         ]
 });
 

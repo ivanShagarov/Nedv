@@ -6,12 +6,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d2c47532-7b30-49aa-9c9c-ec0bea81bff0" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/js/nedvizClient.js" afterPath="$PROJECT_DIR$/public/js/nedvizClient.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/routes/views/nedvizimost.js" afterPath="$PROJECT_DIR$/routes/views/nedvizimost.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <list id="87f9cf81-7326-42b0-b6e9-ed13305241a3" name="New changelist" comment="" />
     <ignored path="nedv.iws" />
     <ignored path=".idea/workspace.xml" />
-    <file path="/Dummy.txt" changelist="d2c47532-7b30-49aa-9c9c-ec0bea81bff0" time="1396026451818" ignored="false" />
+    <file path="/Dummy.txt" changelist="d2c47532-7b30-49aa-9c9c-ec0bea81bff0" time="1396075942320" ignored="false" />
     <file path="/.gitignore" changelist="d2c47532-7b30-49aa-9c9c-ec0bea81bff0" time="1395235964592" ignored="false" />
     <file path="/signin.jade" changelist="d2c47532-7b30-49aa-9c9c-ec0bea81bff0" time="1395239701617" ignored="false" />
     <file path="/list.jade" changelist="d2c47532-7b30-49aa-9c9c-ec0bea81bff0" time="1395241269155" ignored="false" />
@@ -20,7 +22,7 @@
     <file path="/nedvizimostvorle.js" changelist="d2c47532-7b30-49aa-9c9c-ec0bea81bff0" time="1395249245214" ignored="false" />
     <file path="/nedvizimost.jade" changelist="d2c47532-7b30-49aa-9c9c-ec0bea81bff0" time="1396026437392" ignored="false" />
     <file path="/index.js" changelist="d2c47532-7b30-49aa-9c9c-ec0bea81bff0" time="1395347915276" ignored="false" />
-    <file path="/nedvizClient.js" changelist="d2c47532-7b30-49aa-9c9c-ec0bea81bff0" time="1396025072465" ignored="false" />
+    <file path="/nedvizClient.js" changelist="d2c47532-7b30-49aa-9c9c-ec0bea81bff0" time="1396078227593" ignored="false" />
     <file path="/date.js" changelist="d2c47532-7b30-49aa-9c9c-ec0bea81bff0" time="1395429400951" ignored="false" />
     <file path="$PROJECT_DIR$/../../../../backups/cpp/avitomostdone/bin/Debug/savitoGetLinks.js" changelist="d2c47532-7b30-49aa-9c9c-ec0bea81bff0" time="1395438510290" ignored="false" />
     <file path="/savitoGetLinks.js" changelist="d2c47532-7b30-49aa-9c9c-ec0bea81bff0" time="1395438477327" ignored="false" />
@@ -54,6 +56,7 @@
     <sortChildren value="false" />
   </component>
   <component name="DebuggerManager">
+    <ui_properties default_suspend_policy="SuspendAll" default_condition_enabled="true" />
     <breakpoint_any default_suspend_policy="SuspendAll" default_condition_enabled="true">
       <breakpoint>
         <option name="NOTIFY_CAUGHT" value="true" />
@@ -90,7 +93,6 @@
         <option name="LOG_MESSAGE" value="" />
       </breakpoint>
     </breakpoint_any>
-    <ui_properties default_suspend_policy="SuspendAll" default_condition_enabled="true" />
     <breakpoint_rules />
     <ui_properties />
   </component>
@@ -106,53 +108,62 @@
       <file leaf-file-name="nedvizimost.jade" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/templates/views/nedvizimost.jade">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="51" column="47" selection-start="2285" selection-end="2285" vertical-scroll-proportion="0.0">
+            <state line="52" column="52" selection-start="2332" selection-end="2338" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="nedvizimost.js" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="nedvizimost.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/routes/views/nedvizimost.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="172" column="89" selection-start="8125" selection-end="8125" vertical-scroll-proportion="2.9152544">
+            <state line="126" column="13" selection-start="4399" selection-end="5523" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="nedvizClient.js" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="nedvizClient.js" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/public/js/nedvizClient.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="360" column="107" selection-start="14820" selection-end="14820" vertical-scroll-proportion="-11.48">
+            <state line="494" column="29" selection-start="19124" selection-end="19124" vertical-scroll-proportion="0.5527523">
               <folding>
-                <marker date="1396026340722" expanded="false" signature="2554:2566" placeholder="..." />
-                <marker date="1396026340722" expanded="false" signature="2671:2695" placeholder="..." />
-                <marker date="1396026340722" expanded="false" signature="2751:2775" placeholder="..." />
-                <marker date="1396026340722" expanded="false" signature="2832:2856" placeholder="..." />
-                <marker date="1396026340722" expanded="false" signature="3095:3108" placeholder="..." />
-                <marker date="1396026340722" expanded="false" signature="3881:3898" placeholder="..." />
-                <marker date="1396026340722" expanded="false" signature="4140:4157" placeholder="..." />
-                <marker date="1396026340722" expanded="false" signature="4450:4463" placeholder="..." />
-                <marker date="1396026340722" expanded="false" signature="5081:5094" placeholder="..." />
-                <marker date="1396026340722" expanded="false" signature="5323:5340" placeholder="..." />
-                <marker date="1396026340722" expanded="false" signature="5490:5507" placeholder="..." />
-                <marker date="1396026340722" expanded="false" signature="5646:5663" placeholder="..." />
-                <marker date="1396026340722" expanded="false" signature="5809:5826" placeholder="..." />
-                <marker date="1396026340722" expanded="false" signature="6225:6242" placeholder="..." />
-                <marker date="1396026340722" expanded="false" signature="6389:6406" placeholder="..." />
-                <marker date="1396026340722" expanded="false" signature="6552:6569" placeholder="..." />
-                <marker date="1396026340722" expanded="false" signature="6723:6740" placeholder="..." />
-                <marker date="1396026340722" expanded="false" signature="6886:6903" placeholder="..." />
-                <marker date="1396026340722" expanded="false" signature="7054:7071" placeholder="..." />
-                <marker date="1396026340722" expanded="false" signature="7221:7238" placeholder="..." />
-                <marker date="1396026340722" expanded="false" signature="7670:7703" placeholder="..." />
-                <marker date="1396026340722" expanded="false" signature="8248:8261" placeholder="..." />
-                <marker date="1396026340722" expanded="false" signature="8274:8292" placeholder="..." />
-                <marker date="1396026340722" expanded="true" signature="18147:18264" placeholder="..." />
-                <marker date="1396026340722" expanded="true" signature="19163:19176" placeholder="..." />
-                <marker date="1396026340722" expanded="true" signature="19189:19207" placeholder="..." />
+                <marker date="1396079843276" expanded="false" signature="2554:2566" placeholder="..." />
+                <marker date="1396079843276" expanded="false" signature="2671:2695" placeholder="..." />
+                <marker date="1396079843276" expanded="false" signature="2751:2775" placeholder="..." />
+                <marker date="1396079843276" expanded="false" signature="2832:2856" placeholder="..." />
+                <marker date="1396079843276" expanded="false" signature="3095:3108" placeholder="..." />
+                <marker date="1396079843276" expanded="false" signature="3881:3898" placeholder="..." />
+                <marker date="1396079843276" expanded="false" signature="4140:4157" placeholder="..." />
+                <marker date="1396079843276" expanded="false" signature="4450:4463" placeholder="..." />
+                <marker date="1396079843276" expanded="false" signature="5081:5094" placeholder="..." />
+                <marker date="1396079843276" expanded="false" signature="5323:5340" placeholder="..." />
+                <marker date="1396079843276" expanded="false" signature="5490:5507" placeholder="..." />
+                <marker date="1396079843276" expanded="false" signature="5646:5663" placeholder="..." />
+                <marker date="1396079843276" expanded="false" signature="5809:5826" placeholder="..." />
+                <marker date="1396079843276" expanded="false" signature="6225:6242" placeholder="..." />
+                <marker date="1396079843276" expanded="false" signature="6389:6406" placeholder="..." />
+                <marker date="1396079843276" expanded="false" signature="6552:6569" placeholder="..." />
+                <marker date="1396079843276" expanded="false" signature="6723:6740" placeholder="..." />
+                <marker date="1396079843276" expanded="false" signature="6886:6903" placeholder="..." />
+                <marker date="1396079843276" expanded="false" signature="7054:7071" placeholder="..." />
+                <marker date="1396079843276" expanded="false" signature="7221:7238" placeholder="..." />
+                <marker date="1396079843276" expanded="false" signature="7670:7703" placeholder="..." />
+                <marker date="1396079843276" expanded="false" signature="8248:8261" placeholder="..." />
+                <marker date="1396079843276" expanded="false" signature="8274:8292" placeholder="..." />
+                <marker date="1396079843276" expanded="false" signature="19444:19561" placeholder="..." />
+                <marker date="1396079843276" expanded="false" signature="20460:20473" placeholder="..." />
+                <marker date="1396079843276" expanded="false" signature="20486:20504" placeholder="..." />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="savitoGetLinks.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/../../../../cpp/clue/bin/Debug/savitoGetLinks.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="36" column="67" selection-start="1193" selection-end="1245" vertical-scroll-proportion="0.0">
+              <folding />
             </state>
           </provider>
         </entry>
@@ -169,7 +180,7 @@
       <file leaf-file-name="nedvizimost.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/models/nedvizimost.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="33" column="18" selection-start="1376" selection-end="1376" vertical-scroll-proportion="1.6">
+            <state line="33" column="18" selection-start="1376" selection-end="1376" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -215,9 +226,9 @@
         <option value="$PROJECT_DIR$/public/styles/site/layout.less" />
         <option value="$PROJECT_DIR$/public/styles/bootstrap/panels.less" />
         <option value="$PROJECT_DIR$/models/nedvizimost.js" />
+        <option value="$PROJECT_DIR$/templates/views/nedvizimost.jade" />
         <option value="$PROJECT_DIR$/routes/views/nedvizimost.js" />
         <option value="$PROJECT_DIR$/public/js/nedvizClient.js" />
-        <option value="$PROJECT_DIR$/templates/views/nedvizimost.jade" />
       </list>
     </option>
   </component>
@@ -270,151 +281,25 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="nedv" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="test2" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="templates" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="views" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="nedv" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="test2" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="templates" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="nedv" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="test2" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="templates" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="layouts" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="nedv" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="test2" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="public" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="nedv" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="test2" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="public" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="styles" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="nedv" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="test2" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="public" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="styles" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="site" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="nedv" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="test2" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="public" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="styles" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="bootstrap" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
         </subPane>
       </pane>
-      <pane id="PackagesPane" />
       <pane id="Scope" />
+      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth0" value="224" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth1" value="233" />
     <property name="options.splitter.main.proportions" value="0.3" />
-    <property name="MemberChooser.sorted" value="false" />
-    <property name="recentsLimit" value="5" />
-    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatOrder1" value="1" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_treeWidth0" value="224" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatOrder1" value="1" />
+    <property name="recentsLimit" value="5" />
+    <property name="MemberChooser.sorted" value="false" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_flatOrder0" value="0" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../../../cpp/clue/bin/Debug/savitoGetLinks.js" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth2" value="239" />
-    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeWidth3" value="1148" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth3" value="1148" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeWidth3" value="1148" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_treeWidth2" value="239" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_treeWidth1" value="233" />
     <property name="GoToClass.toSaveIncludeLibraries" value="false" />
@@ -455,6 +340,9 @@
       <option name="PORT" value="5005" />
       <method />
     </configuration>
+    <configuration default="true" type="NodeJSConfigurationType" factoryName="Node.js" working-dir="$PROJECT_DIR$">
+      <method />
+    </configuration>
     <configuration default="true" type="Applet" factoryName="Applet">
       <module name="" />
       <option name="MAIN_CLASS_NAME" />
@@ -466,9 +354,6 @@
       <option name="VM_PARAMETERS" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
       <option name="ALTERNATIVE_JRE_PATH" />
-      <method />
-    </configuration>
-    <configuration default="true" type="NodeJSConfigurationType" factoryName="Node.js" working-dir="$PROJECT_DIR$">
       <method />
     </configuration>
     <configuration default="true" type="Application" factoryName="Application">
@@ -527,7 +412,8 @@
       <workItem from="1395745711570" duration="29216000" />
       <workItem from="1395906242723" duration="16443000" />
       <workItem from="1395929087958" duration="4250000" />
-      <workItem from="1395987939096" duration="29399000" />
+      <workItem from="1395987939096" duration="30252000" />
+      <workItem from="1396075939134" duration="4095000" />
     </task>
     <task id="LOCAL-00001" summary="test">
       <created>1395235883060</created>
@@ -613,11 +499,15 @@
       <created>1396026456877</created>
       <updated>1396026456877</updated>
     </task>
-    <option name="localTasksCounter" value="22" />
+    <task id="LOCAL-00022" summary="filter fix3">
+      <created>1396026464055</created>
+      <updated>1396026464055</updated>
+    </task>
+    <option name="localTasksCounter" value="23" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="176574000" />
+    <option name="totallyTimeSpent" value="181522000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-1" y="0" width="1922" height="1061" extended-state="6" />
@@ -631,16 +521,16 @@
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.2850877" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32932165" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32822758" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.17235859" sideWeight="0.6706783" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.17395945" sideWeight="0.6706783" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.28399122" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32822758" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
     </layout>
@@ -723,39 +613,24 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/public/styles/bootstrap/bootstrap.less">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/public/styles/site.min.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="101319" selection-start="101269" selection-end="101269" vertical-scroll-proportion="-0.0">
-          <folding />
-        </state>
+        <state line="0" column="101319" selection-start="101269" selection-end="101269" vertical-scroll-proportion="-0.0" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/public/styles/site.less">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/public/styles/site/layout.less">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="27" column="172" selection-start="424" selection-end="424" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
+        <state line="27" column="172" selection-start="424" selection-end="424" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/public/styles/bootstrap/forms.less">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="375" column="0" selection-start="9432" selection-end="9448" vertical-scroll-proportion="4.1011906">
-          <folding />
-        </state>
+        <state line="375" column="0" selection-start="9432" selection-end="9448" vertical-scroll-proportion="4.1011906" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/templates/views/index.jade">
@@ -767,30 +642,22 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/public/styles/bootstrap/panels.less">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="12" column="45" selection-start="325" selection-end="325" vertical-scroll-proportion="-7.2">
-          <folding />
-        </state>
+        <state line="12" column="45" selection-start="325" selection-end="325" vertical-scroll-proportion="-7.2" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/node_modules/keystone/lib/fieldTypes/date.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="118" column="54" selection-start="2568" selection-end="2568" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
+        <state line="118" column="54" selection-start="2568" selection-end="2568" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/node_modules/keystone/lib/updateHandler.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="288" column="33" selection-start="8533" selection-end="8537" vertical-scroll-proportion="2.3021421">
-          <folding />
-        </state>
+        <state line="288" column="33" selection-start="8533" selection-end="8537" vertical-scroll-proportion="2.3021421" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/node_modules/keystone/lib/updates.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="21" column="43" selection-start="708" selection-end="712" vertical-scroll-proportion="-0.7361894">
-          <folding />
-        </state>
+        <state line="21" column="43" selection-start="708" selection-end="712" vertical-scroll-proportion="-0.7361894" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/node_modules/keystone/routes/views/list.js">
@@ -809,56 +676,63 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/models/nedvizimost.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="33" column="18" selection-start="1376" selection-end="1376" vertical-scroll-proportion="1.6">
+        <state line="33" column="18" selection-start="1376" selection-end="1376" vertical-scroll-proportion="0.0">
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/js/nedvizClient.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="360" column="107" selection-start="14820" selection-end="14820" vertical-scroll-proportion="-11.48">
-          <folding>
-            <marker date="1396026340722" expanded="false" signature="2554:2566" placeholder="..." />
-            <marker date="1396026340722" expanded="false" signature="2671:2695" placeholder="..." />
-            <marker date="1396026340722" expanded="false" signature="2751:2775" placeholder="..." />
-            <marker date="1396026340722" expanded="false" signature="2832:2856" placeholder="..." />
-            <marker date="1396026340722" expanded="false" signature="3095:3108" placeholder="..." />
-            <marker date="1396026340722" expanded="false" signature="3881:3898" placeholder="..." />
-            <marker date="1396026340722" expanded="false" signature="4140:4157" placeholder="..." />
-            <marker date="1396026340722" expanded="false" signature="4450:4463" placeholder="..." />
-            <marker date="1396026340722" expanded="false" signature="5081:5094" placeholder="..." />
-            <marker date="1396026340722" expanded="false" signature="5323:5340" placeholder="..." />
-            <marker date="1396026340722" expanded="false" signature="5490:5507" placeholder="..." />
-            <marker date="1396026340722" expanded="false" signature="5646:5663" placeholder="..." />
-            <marker date="1396026340722" expanded="false" signature="5809:5826" placeholder="..." />
-            <marker date="1396026340722" expanded="false" signature="6225:6242" placeholder="..." />
-            <marker date="1396026340722" expanded="false" signature="6389:6406" placeholder="..." />
-            <marker date="1396026340722" expanded="false" signature="6552:6569" placeholder="..." />
-            <marker date="1396026340722" expanded="false" signature="6723:6740" placeholder="..." />
-            <marker date="1396026340722" expanded="false" signature="6886:6903" placeholder="..." />
-            <marker date="1396026340722" expanded="false" signature="7054:7071" placeholder="..." />
-            <marker date="1396026340722" expanded="false" signature="7221:7238" placeholder="..." />
-            <marker date="1396026340722" expanded="false" signature="7670:7703" placeholder="..." />
-            <marker date="1396026340722" expanded="false" signature="8248:8261" placeholder="..." />
-            <marker date="1396026340722" expanded="false" signature="8274:8292" placeholder="..." />
-            <marker date="1396026340722" expanded="true" signature="18147:18264" placeholder="..." />
-            <marker date="1396026340722" expanded="true" signature="19163:19176" placeholder="..." />
-            <marker date="1396026340722" expanded="true" signature="19189:19207" placeholder="..." />
-          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/templates/views/nedvizimost.jade">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="51" column="47" selection-start="2285" selection-end="2285" vertical-scroll-proportion="0.0">
+        <state line="52" column="52" selection-start="2332" selection-end="2338" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/routes/views/nedvizimost.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="172" column="89" selection-start="8125" selection-end="8125" vertical-scroll-proportion="2.9152544">
+        <state line="126" column="13" selection-start="4399" selection-end="5523" vertical-scroll-proportion="0.0">
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../../../../cpp/clue/bin/Debug/savitoGetLinks.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="36" column="67" selection-start="1193" selection-end="1245" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/js/nedvizClient.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="494" column="29" selection-start="19124" selection-end="19124" vertical-scroll-proportion="0.5527523">
+          <folding>
+            <marker date="1396079843276" expanded="false" signature="2554:2566" placeholder="..." />
+            <marker date="1396079843276" expanded="false" signature="2671:2695" placeholder="..." />
+            <marker date="1396079843276" expanded="false" signature="2751:2775" placeholder="..." />
+            <marker date="1396079843276" expanded="false" signature="2832:2856" placeholder="..." />
+            <marker date="1396079843276" expanded="false" signature="3095:3108" placeholder="..." />
+            <marker date="1396079843276" expanded="false" signature="3881:3898" placeholder="..." />
+            <marker date="1396079843276" expanded="false" signature="4140:4157" placeholder="..." />
+            <marker date="1396079843276" expanded="false" signature="4450:4463" placeholder="..." />
+            <marker date="1396079843276" expanded="false" signature="5081:5094" placeholder="..." />
+            <marker date="1396079843276" expanded="false" signature="5323:5340" placeholder="..." />
+            <marker date="1396079843276" expanded="false" signature="5490:5507" placeholder="..." />
+            <marker date="1396079843276" expanded="false" signature="5646:5663" placeholder="..." />
+            <marker date="1396079843276" expanded="false" signature="5809:5826" placeholder="..." />
+            <marker date="1396079843276" expanded="false" signature="6225:6242" placeholder="..." />
+            <marker date="1396079843276" expanded="false" signature="6389:6406" placeholder="..." />
+            <marker date="1396079843276" expanded="false" signature="6552:6569" placeholder="..." />
+            <marker date="1396079843276" expanded="false" signature="6723:6740" placeholder="..." />
+            <marker date="1396079843276" expanded="false" signature="6886:6903" placeholder="..." />
+            <marker date="1396079843276" expanded="false" signature="7054:7071" placeholder="..." />
+            <marker date="1396079843276" expanded="false" signature="7221:7238" placeholder="..." />
+            <marker date="1396079843276" expanded="false" signature="7670:7703" placeholder="..." />
+            <marker date="1396079843276" expanded="false" signature="8248:8261" placeholder="..." />
+            <marker date="1396079843276" expanded="false" signature="8274:8292" placeholder="..." />
+            <marker date="1396079843276" expanded="false" signature="19444:19561" placeholder="..." />
+            <marker date="1396079843276" expanded="false" signature="20460:20473" placeholder="..." />
+            <marker date="1396079843276" expanded="false" signature="20486:20504" placeholder="..." />
+          </folding>
         </state>
       </provider>
     </entry>

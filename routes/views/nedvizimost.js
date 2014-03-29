@@ -11,6 +11,7 @@ exports = module.exports = function(req, res) {
         cityRaions: [ "Заводской", "Железнодор.", "Советский", "Северный", "Знаменка" ],
         category: [ "Квартиры", "Комнаты", "Дома", "Участки", "Гаражи", "Коммерческая", "За рубежом" ],
         komnat: [ "Студии", "1", "2", "3", "Многокомнатные" ],
+        period: [ "1 день", "2 дня", "3 дня", "Неделя", "2 недели", "3 недели", "Месяц", "Текущий год" ],
         tags: []
     };
 
@@ -397,8 +398,7 @@ exports = module.exports = function(req, res) {
 
                                 case "GREATER_THAN":
                                     // Если число
-                                    var testNum = filtervalue.replace(/\d/g, "");
-                                    if (testNum == ""){
+
                                         // или первое
                                         if (filteroperator == 1 && tmpfilteroperator == 0){
                                             whereObj['$and'][i]['$or'][0][filterdatafield] = { $gt: parseInt(filtervalue) };
@@ -411,15 +411,12 @@ exports = module.exports = function(req, res) {
                                         } else {
                                             whereObj['$and'][i][filterdatafield] = { $gt: parseInt(filtervalue) };
                                         }
-                                    } else {
-                                          // Для строк нет такой операции
-                                    }
+
                                     
                                     break;
                                 case "LESS_THAN":
                                     // Если число
-                                    var testNum = filtervalue.replace(/\d/g, "");
-                                    if (testNum == ""){
+
                                         // или первое
                                         if (filteroperator == 1 && tmpfilteroperator == 0){
                                             whereObj['$and'][i]['$or'][0][filterdatafield] = { $lt: parseInt(filtervalue) };
@@ -432,15 +429,11 @@ exports = module.exports = function(req, res) {
                                         } else {
                                             whereObj['$and'][i][filterdatafield] = { $lt: parseInt(filtervalue) };
                                         }
-                                    } else {
-                                        // Для строк нет такой операции
-                                    }
+
                                     
                                     break;
                                 case "GREATER_THAN_OR_EQUAL":
-                                    // Если число
-                                    var testNum = filtervalue.replace(/\d/g, "");
-                                    if (testNum == ""){
+                                    // Если число - не проверять тк дата
                                         // или первое
                                         if (filteroperator == 1 && tmpfilteroperator == 0){
                                             whereObj['$and'][i]['$or'][0][filterdatafield] = { $gte: parseInt(filtervalue) };
@@ -453,15 +446,12 @@ exports = module.exports = function(req, res) {
                                         } else {
                                             whereObj['$and'][i][filterdatafield] = { $gte: parseInt(filtervalue) };
                                         }
-                                    } else {
-                                        // Для строк нет такой операции
-                                    }
+
                                     
                                     break;
                                 case "LESS_THAN_OR_EQUAL":
                                     // Если число
-                                    var testNum = filtervalue.replace(/\d/g, "");
-                                    if (testNum == ""){
+
                                         // или первое
                                         if (filteroperator == 1 && tmpfilteroperator == 0){
                                             whereObj['$and'][i]['$or'][0][filterdatafield] = { $lte: parseInt(filtervalue) };
@@ -474,9 +464,7 @@ exports = module.exports = function(req, res) {
                                         } else {
                                             whereObj['$and'][i][filterdatafield] = { $lte: parseInt(filtervalue) };
                                         }
-                                    } else {
-                                        // Для строк нет такой операции
-                                    }
+
                                     
                                     break;
                                 case "STARTS_WITH":
