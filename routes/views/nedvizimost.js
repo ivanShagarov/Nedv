@@ -1,4 +1,5 @@
-var keystone = require('keystone');
+var keystone = require('keystone'),
+    moment = require('keystone/node_modules/moment');
 
 exports = module.exports = function(req, res) {
 
@@ -294,28 +295,30 @@ exports = module.exports = function(req, res) {
                                     // Если число
                                     var testNum = filtervalue.replace(/\d/g, "");
 
-
-
-
                                     if (filterdatafield == "date") {  // Иначе это дата
 
                                         var testAr =  filtervalue.split("/");
                                         // 0 - dd, 1 - mm, 2 - yyyyy
-                                        filtervalue = new Date(testAr[1]+"/"+testAr[0]+"/"+testAr[2]);
-                                        //filtervalue = filtervalue.toISOString();
-                                        filtervalue = parseInt(filtervalue.getTime());
+                                        //filtervalue = new Date(testAr[1]+"/"+testAr[0]+"/"+testAr[2]);
+                                        //to moment 2014-03-22
+                                        filtervalue = testAr[2]+"-"+testAr[1]+"-"+testAr[0];
 
+                                        var start = moment(filtervalue).startOf('day');
+                                        var end = moment(filtervalue).endOf('day');
+                                       // console.log("mom " + start.toDate());
+                                        //filtervalue = filtervalue.toISOString();
+                                        //filtervalue = parseInt(filtervalue.getTime());
                                         // или первое
                                         if (filteroperator == 1 && tmpfilteroperator == 0){
-                                            whereObj['$and'][i]['$or'][0][filterdatafield] = { $gte:  filtervalue,  $lte:  filtervalue  };
+                                            whereObj['$and'][i]['$or'][0][filterdatafield] = {  $lte: end.toDate(), $gte: start.toDate()  };
                                             //$and
                                             // или второе
                                         } else if (filteroperator == 1 && tmpfilteroperator == 1) {
                                             var prev = i-1;
-                                            whereObj['$and'][prev]['$or'][1][filterdatafield] = { $gte:  filtervalue,  $lte:  filtervalue };
+                                            whereObj['$and'][prev]['$or'][1][filterdatafield] = { $lte: end.toDate(), $gte: start.toDate() };
                                             // обычное и
                                         } else {
-                                            whereObj['$and'][i][filterdatafield] = {  $gte:  filtervalue,  $lte:  filtervalue };
+                                            whereObj['$and'][i][filterdatafield] = {  $lte: end.toDate(), $gte: start.toDate() };
                                         }
 
                                     } else if (testNum == ""){
@@ -353,7 +356,37 @@ exports = module.exports = function(req, res) {
 
                                     // Если число
                                     var testNum = filtervalue.replace(/\d/g, "");
-                                    if (testNum == ""){
+
+
+
+                                    if (filterdatafield == "date") {  // Иначе это дата
+                                        // 2014-03-27T00:00:00Z
+                                        // 2014-03-27T20:00:00.000Z
+                                        //  var day = moment(filtervalue).startOf('day');
+
+                                        var testAr =  filtervalue.split("/");
+                                        filtervalue = testAr[2]+"-"+testAr[1]+"-"+testAr[0];
+                                        // Создать такуюже дату как в базе, т.е. без временной зоны
+                                       var day = moment(filtervalue + "00:00 +0000", "YYYY-MM-DD HH:mm Z");
+
+                                      //  filtervalue = new Date(testAr[1]+"/"+testAr[0]+"/"+testAr[2]);
+                                        //var day = filtervalue.toISOString();
+
+                                        // или первое
+                                        if (filteroperator == 1 && tmpfilteroperator == 0){
+                                            whereObj['$and'][i]['$or'][0][filterdatafield] = {   $ne: day  };
+                                            //$and
+                                            // или второе
+                                        } else if (filteroperator == 1 && tmpfilteroperator == 1) {
+                                            var prev = i-1;
+                                            whereObj['$and'][prev]['$or'][1][filterdatafield] = {  $ne: day };
+                                            // обычное и
+                                        } else {
+                                            whereObj['$and'][i][filterdatafield] = {  $ne: day };
+                                        }
+
+
+                                    } else if (testNum == ""){
                                         // или первое
                                         if (filteroperator == 1 && tmpfilteroperator == 0){
                                             whereObj['$and'][i]['$or'][0][filterdatafield] = { $ne: parseInt(filtervalue) };
@@ -429,9 +462,9 @@ exports = module.exports = function(req, res) {
                                     if (filterdatafield == "date") {  // Иначе это дата
 
                                         var testAr =  filtervalue.split("/");
-                                        // 0 - dd, 1 - mm, 2 - yyyyy
-                                        filtervalue = new Date(testAr[1]+"/"+testAr[0]+"/"+testAr[2]);
-                                        filtervalue = parseInt(filtervalue.getTime());
+                                        filtervalue = testAr[2]+"-"+testAr[1]+"-"+testAr[0];
+                                        // Создать такуюже дату как в базе, т.е. без временной зоны
+                                        var filtervalue = moment(filtervalue + "00:00 +0000", "YYYY-MM-DD HH:mm Z");
 
                                         // или первое
                                         if (filteroperator == 1 && tmpfilteroperator == 0){
@@ -467,9 +500,9 @@ exports = module.exports = function(req, res) {
                                     if (filterdatafield == "date") {  // Иначе это дата
 
                                         var testAr =  filtervalue.split("/");
-                                        // 0 - dd, 1 - mm, 2 - yyyyy
-                                        filtervalue = new Date(testAr[1]+"/"+testAr[0]+"/"+testAr[2]);
-                                        filtervalue = parseInt(filtervalue.getTime());
+                                        filtervalue = testAr[2]+"-"+testAr[1]+"-"+testAr[0];
+                                        // Создать такуюже дату как в базе, т.е. без временной зоны
+                                        var filtervalue = moment(filtervalue + "00:00 +0000", "YYYY-MM-DD HH:mm Z");
 
                                         // или первое
                                         if (filteroperator == 1 && tmpfilteroperator == 0){
@@ -505,9 +538,9 @@ exports = module.exports = function(req, res) {
                                     if (filterdatafield == "date") {  // Иначе это дата
 
                                         var testAr =  filtervalue.split("/");
-                                        // 0 - dd, 1 - mm, 2 - yyyyy
-                                        filtervalue = new Date(testAr[1]+"/"+testAr[0]+"/"+testAr[2]);
-                                        filtervalue = parseInt(filtervalue.getTime());
+                                        filtervalue = testAr[2]+"-"+testAr[1]+"-"+testAr[0];
+                                        // Создать такуюже дату как в базе, т.е. без временной зоны
+                                        var filtervalue = moment(filtervalue + "00:00 +0000", "YYYY-MM-DD HH:mm Z");
 
                                         // или первое
                                         if (filteroperator == 1 && tmpfilteroperator == 0){
@@ -541,8 +574,28 @@ exports = module.exports = function(req, res) {
                                 case "LESS_THAN_OR_EQUAL":
                                     // Если число
 
+
+                                    if (filterdatafield == "date") {  // Иначе это дата
+
+                                        var testAr =  filtervalue.split("/");
+                                        filtervalue = testAr[2]+"-"+testAr[1]+"-"+testAr[0];
+                                        // Создать такуюже дату как в базе, т.е. без временной зоны
+                                        var filtervalue = moment(filtervalue + "00:00 +0000", "YYYY-MM-DD HH:mm Z");
+
                                         // или первое
                                         if (filteroperator == 1 && tmpfilteroperator == 0){
+                                            whereObj['$and'][i]['$or'][0][filterdatafield] = { $lte:  filtervalue };
+                                            //$and
+                                            // или второе
+                                        } else if (filteroperator == 1 && tmpfilteroperator == 1) {
+                                            var prev = i-1;
+                                            whereObj['$and'][prev]['$or'][1][filterdatafield] = { $lte:   filtervalue  };
+                                            // обычное и
+                                        } else {
+                                            whereObj['$and'][i][filterdatafield] = { $lte:  filtervalue };
+                                        }
+
+                                    } else if (filteroperator == 1 && tmpfilteroperator == 0){
                                             whereObj['$and'][i]['$or'][0][filterdatafield] = { $lte: parseInt(filtervalue) };
                                             //$and
                                             // или второе
