@@ -78,7 +78,7 @@ exports = module.exports = function(req, res) {
                             filterdatafield = req.query['filterdatafield' + i];
                             filtervalue = req.query['filtervalue' + i];
                             filteroperator = req.query['filteroperator' + i];
-
+                            /*
                             console.log("filterscount " + filterscount);
                             console.log("filtercondition " + filtercondition);
                             console.log("filterdatafield " + filterdatafield);
@@ -86,7 +86,7 @@ exports = module.exports = function(req, res) {
                             console.log("filteroperator " + filteroperator);
                             console.log("tmpdatafield " + tmpdatafield);
                             console.log("tmpfilteroperator " + tmpfilteroperator);
-
+                            */
                             if(filtervalue){
                                 for (var it = 0; it < specialChars.length; it++) {
                                     filtervalue = filtervalue.replace(new RegExp("\\" + specialChars[it], 'gi'), '');

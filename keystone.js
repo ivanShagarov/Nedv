@@ -94,7 +94,8 @@ keystone.set('email tests', require('./routes/emails'));
 keystone.set('nav', {
     'Сообщения': 'enquiries',
     'Пользователи': 'users',
-    'Недвижимость': 'Nedvizimost'
+    'Недвижимость': 'Nedvizimost',
+    'Помощь': 'Help'
 });
 
 // Start Keystone to connect to your database and initialise the web server

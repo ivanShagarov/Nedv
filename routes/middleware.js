@@ -48,7 +48,8 @@ exports.initLocals = function(req, res, next) {
 	locals.navLinks = [
         { label: 'Главная',		key: 'home',		href: '/' },
         { label: 'Обратная связь',		key: 'contact',		href: '/contact' },
-        { label: 'Недвижимость',		key: 'nedvizimost',		href: '/nedvizimost' }
+        { label: 'Недвижимость',		key: 'nedvizimost',		href: '/nedvizimost' },
+        { label: 'Помощь',		key: 'help',		href: '/help' }
 	];
 	
 	locals.user = req.user;
@@ -84,7 +85,7 @@ exports.flashMessages = function(req, res, next) {
 exports.requireUser = function(req, res, next) {
 	
 	if (!req.user) {
-		req.flash('error', 'Please sign in to access this page.');
+		req.flash('error', 'Пожалуйста, войдите под своим аккаунтом для получения доступа к этой странице.');
 		res.redirect('/keystone/signin');
 	} else {
 		next();

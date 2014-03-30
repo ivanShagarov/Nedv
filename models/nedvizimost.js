@@ -43,7 +43,8 @@ Ned.add({
     text: { type: Types.Text, initial: true, label: "Описание"   },
     link: { type: Types.Text, initial: true, label: "Ссылка"   },
     time: { type: Types.Text, initial: true, label: "Время"   },
-    agent: { type: Types.Text, initial: true, label: "Агент"   }
+    agent: { type: Types.Text, initial: true, label: "Агент"   },
+    repeats: { type: Number, initial: true, label: "Повторов"   }
 
 
 });

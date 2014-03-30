@@ -6,20 +6,35 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d2c47532-7b30-49aa-9c9c-ec0bea81bff0" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/templates/views/help.jade" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/models/help.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/routes/views/help.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/images/logo-email.gif" afterPath="$PROJECT_DIR$/public/images/logo-email.gif" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/views/contact.jade" afterPath="$PROJECT_DIR$/templates/views/contact.jade" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/routes/views/contact.js" afterPath="$PROJECT_DIR$/routes/views/contact.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/layouts/default.jade" afterPath="$PROJECT_DIR$/templates/layouts/default.jade" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/models/enquiries.js" afterPath="$PROJECT_DIR$/models/enquiries.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/emails/enquiry-notification.jade" afterPath="$PROJECT_DIR$/templates/emails/enquiry-notification.jade" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/views/index.jade" afterPath="$PROJECT_DIR$/templates/views/index.jade" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/routes/index.js" afterPath="$PROJECT_DIR$/routes/index.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/keystone.js" afterPath="$PROJECT_DIR$/keystone.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/routes/middleware.js" afterPath="$PROJECT_DIR$/routes/middleware.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/js/nedvizClient.js" afterPath="$PROJECT_DIR$/public/js/nedvizClient.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/views/nedvizimost.jade" afterPath="$PROJECT_DIR$/templates/views/nedvizimost.jade" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/models/nedvizimost.js" afterPath="$PROJECT_DIR$/models/nedvizimost.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/routes/views/nedvizimost.js" afterPath="$PROJECT_DIR$/routes/views/nedvizimost.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/models/users.js" afterPath="$PROJECT_DIR$/models/users.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <list id="87f9cf81-7326-42b0-b6e9-ed13305241a3" name="New changelist" comment="" />
     <ignored path="nedv.iws" />
     <ignored path=".idea/workspace.xml" />
-    <file path="/Dummy.txt" changelist="d2c47532-7b30-49aa-9c9c-ec0bea81bff0" time="1396171746829" ignored="false" />
+    <file path="/Dummy.txt" changelist="d2c47532-7b30-49aa-9c9c-ec0bea81bff0" time="1396211982560" ignored="false" />
     <file path="/.gitignore" changelist="d2c47532-7b30-49aa-9c9c-ec0bea81bff0" time="1395235964592" ignored="false" />
     <file path="/signin.jade" changelist="d2c47532-7b30-49aa-9c9c-ec0bea81bff0" time="1395239701617" ignored="false" />
     <file path="/list.jade" changelist="d2c47532-7b30-49aa-9c9c-ec0bea81bff0" time="1395241269155" ignored="false" />
-    <file path="/a.dummy" changelist="d2c47532-7b30-49aa-9c9c-ec0bea81bff0" time="1395668584744" ignored="false" />
-    <file path="/nedvizimost.js" changelist="d2c47532-7b30-49aa-9c9c-ec0bea81bff0" time="1396174003167" ignored="false" />
+    <file path="/a.dummy" changelist="d2c47532-7b30-49aa-9c9c-ec0bea81bff0" time="1396209218108" ignored="false" />
+    <file path="/nedvizimost.js" changelist="d2c47532-7b30-49aa-9c9c-ec0bea81bff0" time="1396210272869" ignored="false" />
     <file path="/nedvizimostvorle.js" changelist="d2c47532-7b30-49aa-9c9c-ec0bea81bff0" time="1395249245214" ignored="false" />
     <file path="/nedvizimost.jade" changelist="d2c47532-7b30-49aa-9c9c-ec0bea81bff0" time="1396182389351" ignored="false" />
     <file path="/index.js" changelist="d2c47532-7b30-49aa-9c9c-ec0bea81bff0" time="1395347915276" ignored="false" />
@@ -34,6 +49,19 @@
     <file path="$PROJECT_DIR$/../../../../cpp/clue/bin/Debug/savitoGetInfo.js" changelist="d2c47532-7b30-49aa-9c9c-ec0bea81bff0" time="1395909937214" ignored="false" />
     <file path="/layout.less" changelist="d2c47532-7b30-49aa-9c9c-ec0bea81bff0" time="1396000174057" ignored="false" />
     <file path="/list.js" changelist="d2c47532-7b30-49aa-9c9c-ec0bea81bff0" time="1396168877418" ignored="false" />
+    <file path="/enquiry-notification.jade" changelist="d2c47532-7b30-49aa-9c9c-ec0bea81bff0" time="1396202991397" ignored="false" />
+    <file path="/default.jade" changelist="d2c47532-7b30-49aa-9c9c-ec0bea81bff0" time="1396203165065" ignored="false" />
+    <file path="/contact.jade" changelist="d2c47532-7b30-49aa-9c9c-ec0bea81bff0" time="1396209248807" ignored="false" />
+    <file path="/index.jade" changelist="d2c47532-7b30-49aa-9c9c-ec0bea81bff0" time="1396204844358" ignored="false" />
+    <file path="/signout.jade" changelist="d2c47532-7b30-49aa-9c9c-ec0bea81bff0" time="1396205191248" ignored="false" />
+    <file path="/auth-brand.jade" changelist="d2c47532-7b30-49aa-9c9c-ec0bea81bff0" time="1396205259272" ignored="false" />
+    <file path="/auth.jade" changelist="d2c47532-7b30-49aa-9c9c-ec0bea81bff0" time="1396205330778" ignored="false" />
+    <file path="/base.jade" changelist="d2c47532-7b30-49aa-9c9c-ec0bea81bff0" time="1396205454494" ignored="false" />
+    <file path="/help.js" changelist="d2c47532-7b30-49aa-9c9c-ec0bea81bff0" time="1396212360443" ignored="false" />
+    <file path="/keystone.js" changelist="d2c47532-7b30-49aa-9c9c-ec0bea81bff0" time="1396206582827" ignored="false" />
+    <file path="/help.jade" changelist="d2c47532-7b30-49aa-9c9c-ec0bea81bff0" time="1396209156345" ignored="false" />
+    <file path="$PROJECT_DIR$/../modulus/models/help.js" changelist="d2c47532-7b30-49aa-9c9c-ec0bea81bff0" time="1396212361567" ignored="false" />
+    <file path="$PROJECT_DIR$/../modulus/templates/views/help.jade" changelist="d2c47532-7b30-49aa-9c9c-ec0bea81bff0" time="1396212379023" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -58,7 +86,6 @@
     <sortChildren value="false" />
   </component>
   <component name="DebuggerManager">
-    <ui_properties default_suspend_policy="SuspendAll" default_condition_enabled="true" />
     <breakpoint_any default_suspend_policy="SuspendAll" default_condition_enabled="true">
       <breakpoint>
         <option name="NOTIFY_CAUGHT" value="true" />
@@ -95,6 +122,7 @@
         <option name="LOG_MESSAGE" value="" />
       </breakpoint>
     </breakpoint_any>
+    <ui_properties default_suspend_policy="SuspendAll" default_condition_enabled="true" />
     <breakpoint_rules />
     <ui_properties />
   </component>
@@ -107,100 +135,19 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="nedvizimost.jade" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/templates/views/nedvizimost.jade">
+      <file leaf-file-name="help.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/models/help.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="30" column="52" selection-start="1723" selection-end="1735" vertical-scroll-proportion="0.0">
+            <state line="20" column="28" selection-start="490" selection-end="494" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="nedvizimost.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/routes/views/nedvizimost.js">
+      <file leaf-file-name="help.jade" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/templates/views/help.jade">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="15" column="8" selection-start="774" selection-end="858" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="nedvizClient.js" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/public/js/nedvizClient.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="499" column="36" selection-start="20774" selection-end="20774" vertical-scroll-proportion="0.43233946">
-              <folding>
-                <marker date="1396182677304" expanded="false" signature="2554:2566" placeholder="..." />
-                <marker date="1396182677304" expanded="false" signature="2671:2695" placeholder="..." />
-                <marker date="1396182677304" expanded="false" signature="2751:2775" placeholder="..." />
-                <marker date="1396182677304" expanded="false" signature="2832:2856" placeholder="..." />
-                <marker date="1396182677304" expanded="false" signature="3095:3108" placeholder="..." />
-                <marker date="1396182677304" expanded="false" signature="3881:3898" placeholder="..." />
-                <marker date="1396182677304" expanded="false" signature="4140:4157" placeholder="..." />
-                <marker date="1396182677304" expanded="false" signature="4450:4463" placeholder="..." />
-                <marker date="1396182677304" expanded="false" signature="5081:5094" placeholder="..." />
-                <marker date="1396182677304" expanded="false" signature="5323:5340" placeholder="..." />
-                <marker date="1396182677304" expanded="false" signature="5490:5507" placeholder="..." />
-                <marker date="1396182677304" expanded="false" signature="5646:5663" placeholder="..." />
-                <marker date="1396182677304" expanded="false" signature="5809:5826" placeholder="..." />
-                <marker date="1396182677304" expanded="false" signature="6225:6242" placeholder="..." />
-                <marker date="1396182677304" expanded="false" signature="6389:6406" placeholder="..." />
-                <marker date="1396182677304" expanded="false" signature="6552:6569" placeholder="..." />
-                <marker date="1396182677304" expanded="false" signature="6723:6740" placeholder="..." />
-                <marker date="1396182677304" expanded="false" signature="6886:6903" placeholder="..." />
-                <marker date="1396182677304" expanded="false" signature="7054:7071" placeholder="..." />
-                <marker date="1396182677304" expanded="false" signature="7221:7238" placeholder="..." />
-                <marker date="1396182677304" expanded="false" signature="7670:7703" placeholder="..." />
-                <marker date="1396182677304" expanded="false" signature="8248:8261" placeholder="..." />
-                <marker date="1396182677304" expanded="false" signature="8274:8292" placeholder="..." />
-                <marker date="1396182677304" expanded="true" signature="32179:32296" placeholder="..." />
-                <marker date="1396182677304" expanded="true" signature="33195:33208" placeholder="..." />
-                <marker date="1396182677304" expanded="true" signature="33221:33239" placeholder="..." />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="savitoGetLinks.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/../../../../cpp/clue/bin/Debug/savitoGetLinks.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="105" column="29" selection-start="3982" selection-end="3997" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="savitoGetInfo.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/../../../../phantomjs/parser/savitoGetInfo.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="86" column="51" selection-start="3113" selection-end="3118" vertical-scroll-proportion="-25.84">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="middleware.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/routes/middleware.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="41" column="2" selection-start="985" selection-end="985" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="nedvizimost.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/models/nedvizimost.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="33" column="18" selection-start="1376" selection-end="1376" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="list.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/node_modules/keystone/lib/list.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="946" column="82" selection-start="20849" selection-end="20868" vertical-scroll-proportion="0.0">
+            <state line="5" column="25" selection-start="104" selection-end="104" vertical-scroll-proportion="0.08455468">
               <folding />
             </state>
           </provider>
@@ -224,22 +171,22 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
+        <option value="$PROJECT_DIR$/models/enquiries.js" />
+        <option value="$PROJECT_DIR$/models/users.js" />
+        <option value="$PROJECT_DIR$/templates/views/index.jade" />
+        <option value="$PROJECT_DIR$/node_modules/keystone/templates/views/signin.jade" />
+        <option value="$PROJECT_DIR$/node_modules/keystone/templates/views/signout.jade" />
+        <option value="$PROJECT_DIR$/node_modules/keystone/templates/includes/auth-brand.jade" />
+        <option value="$PROJECT_DIR$/node_modules/keystone/templates/layout/auth.jade" />
+        <option value="$PROJECT_DIR$/node_modules/keystone/templates/layout/base.jade" />
         <option value="$PROJECT_DIR$/routes/index.js" />
-        <option value="$PROJECT_DIR$/node_modules/keystone/node_modules/moment/moment.js" />
-        <option value="$PROJECT_DIR$/node_modules/keystone/lib/fieldTypes/date.js" />
-        <option value="$PROJECT_DIR$/public/styles/boxer/jquery.fs.boxer.css" />
-        <option value="$PROJECT_DIR$/public/js/lib/boxer/jquery.fs.boxer.js" />
-        <option value="$PROJECT_DIR$/public/js/lib/boxer/jquery.fs.boxer.min.js" />
-        <option value="$PROJECT_DIR$/public/styles/bootstrap/forms.less" />
-        <option value="$PROJECT_DIR$/public/styles/site/layout.less" />
-        <option value="$PROJECT_DIR$/public/styles/bootstrap/panels.less" />
-        <option value="$PROJECT_DIR$/models/nedvizimost.js" />
-        <option value="$PROJECT_DIR$/../../../../phantomjs/parser/savitoGetLinks.js" />
-        <option value="$PROJECT_DIR$/../../../../cpp/clue/bin/Debug/savitoGetLinks.js" />
-        <option value="$PROJECT_DIR$/node_modules/keystone/lib/list.js" />
+        <option value="$PROJECT_DIR$/keystone.js" />
+        <option value="$PROJECT_DIR$/routes/middleware.js" />
+        <option value="$PROJECT_DIR$/routes/views/help.js" />
+        <option value="$PROJECT_DIR$/templates/views/contact.jade" />
         <option value="$PROJECT_DIR$/routes/views/nedvizimost.js" />
-        <option value="$PROJECT_DIR$/templates/views/nedvizimost.jade" />
-        <option value="$PROJECT_DIR$/public/js/nedvizClient.js" />
+        <option value="$PROJECT_DIR$/models/help.js" />
+        <option value="$PROJECT_DIR$/templates/views/help.jade" />
       </list>
     </option>
   </component>
@@ -274,7 +221,6 @@
       <sortByType />
     </navigator>
     <panes>
-      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -303,99 +249,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="node_modules" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="nedv" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="test2" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="node_modules" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="keystone" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="nedv" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="test2" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="node_modules" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="keystone" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
               <option name="myItemId" value="templates" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="nedv" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="test2" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="node_modules" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="keystone" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="templates" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="helpers" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="emails" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="nedv" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="test2" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="node_modules" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="keystone" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="routes" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
@@ -413,19 +267,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="node_modules" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="keystone" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="routes" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="download" />
+              <option name="myItemId" value="templates" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -439,68 +281,13 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="node_modules" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="keystone" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="routes" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="api" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="nedv" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="test2" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="node_modules" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="keystone" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="node_modules" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="nedv" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="test2" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="node_modules" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="keystone" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="lib" />
+              <option name="myItemId" value="models" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
         </subPane>
       </pane>
+      <pane id="PackagesPane" />
       <pane id="Scope" />
     </panes>
   </component>
@@ -513,7 +300,7 @@
     <property name="FileHistory.git4idea.history.GitHistoryProvider_flatOrder1" value="1" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_treeWidth0" value="224" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_flatOrder0" value="0" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../../../phantomjs/parser/savitoGetInfo.js" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth2" value="239" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_treeWidth3" value="1148" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth3" value="1148" />
@@ -633,7 +420,9 @@
       <workItem from="1396075939134" duration="4120000" />
       <workItem from="1396109568760" duration="10762000" />
       <workItem from="1396125782974" duration="445000" />
-      <workItem from="1396168627427" duration="12689000" />
+      <workItem from="1396168627427" duration="23490000" />
+      <workItem from="1396210389147" duration="52000" />
+      <workItem from="1396211983042" duration="407000" />
     </task>
     <task id="LOCAL-00001" summary="test">
       <created>1395235883060</created>
@@ -739,11 +528,15 @@
       <created>1396171748955</created>
       <updated>1396171748955</updated>
     </task>
-    <option name="localTasksCounter" value="27" />
+    <task id="LOCAL-00027" summary="filers fix7">
+      <created>1396182816952</created>
+      <updated>1396182816952</updated>
+    </task>
+    <option name="localTasksCounter" value="28" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="205443000" />
+    <option name="totallyTimeSpent" value="216703000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-1" y="0" width="1922" height="1061" extended-state="6" />
@@ -757,16 +550,16 @@
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.2850877" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32932165" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32822758" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.18036287" sideWeight="0.6706783" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.18463181" sideWeight="0.7160088" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.28399122" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.28399122" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32822758" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
     </layout>
@@ -813,7 +606,7 @@
     <option name="WRAP_WHEN_TYPING_REACHES_RIGHT_MARGIN" value="false" />
     <option name="FORCE_NON_EMPTY_COMMENT" value="false" />
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="false" />
-    <option name="LAST_COMMIT_MESSAGE" value="icons" />
+    <option name="LAST_COMMIT_MESSAGE" value="filers fix7" />
     <option name="MAKE_NEW_CHANGELIST_ACTIVE" value="false" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_FILES_UP_TO_DATE_BEFORE_COMMIT" value="false" />
@@ -846,6 +639,7 @@
     <MESSAGE value="filter fix5" />
     <MESSAGE value="filter fix6" />
     <MESSAGE value="icons" />
+    <MESSAGE value="filers fix7" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -860,136 +654,89 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/node_modules/keystone/lib/fieldTypes/date.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="118" column="54" selection-start="2568" selection-end="2568" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/node_modules/keystone/lib/updateHandler.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="288" column="33" selection-start="8533" selection-end="8537" vertical-scroll-proportion="2.3021421" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/node_modules/keystone/lib/updates.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="21" column="43" selection-start="708" selection-end="712" vertical-scroll-proportion="-0.7361894" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/routes/middleware.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="41" column="2" selection-start="985" selection-end="985" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../../../../phantomjs/parser/savitoGetLinks.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="202" column="76" selection-start="7015" selection-end="7015" vertical-scroll-proportion="0.9661781" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/node_modules/keystone/lib/view.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-0.029761905">
-          <folding>
-            <element signature="n#!!doc" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/node_modules/keystone/routes/views/list.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="2" column="28" selection-start="81" selection-end="87" vertical-scroll-proportion="0.034802783">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/node_modules/keystone/routes/views/item.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="4" column="10" selection-start="127" selection-end="133" vertical-scroll-proportion="0.06960557">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/node_modules/keystone/routes/api/list.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="183" column="23" selection-start="3976" selection-end="3978" vertical-scroll-proportion="2.9164734">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/models/nedvizimost.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="33" column="18" selection-start="1376" selection-end="1376" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
+        <state line="16" column="48" selection-start="0" selection-end="3191" vertical-scroll-proportion="0.38338658" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/node_modules/keystone/lib/list.js">
+    <entry file="file://$PROJECT_DIR$/routes/emails.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="946" column="82" selection-start="20849" selection-end="20868" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
+        <state line="18" column="7" selection-start="486" selection-end="486" vertical-scroll-proportion="0.2571885" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../../../../cpp/clue/bin/Debug/savitoGetLinks.js">
+    <entry file="file://$PROJECT_DIR$/models/enquiries.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="105" column="29" selection-start="3982" selection-end="3997" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
+        <state line="17" column="21" selection-start="512" selection-end="526" vertical-scroll-proportion="0.40734825" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../../../../phantomjs/parser/savitoGetInfo.js">
+    <entry file="file://$PROJECT_DIR$/routes/index.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="86" column="51" selection-start="3113" selection-end="3118" vertical-scroll-proportion="-25.84">
-          <folding />
-        </state>
+        <state line="35" column="31" selection-start="1303" selection-end="1303" vertical-scroll-proportion="0.5686901" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/routes/views/nedvizimost.js">
+    <entry file="file://$PROJECT_DIR$/routes/views/contact.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="15" column="8" selection-start="774" selection-end="858" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
+        <state line="24" column="54" selection-start="754" selection-end="754" vertical-scroll-proportion="0.57507986" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/routes/views/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="10" column="31" selection-start="215" selection-end="215" vertical-scroll-proportion="0.23961662" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/keystone.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="97" column="19" selection-start="2547" selection-end="2547" vertical-scroll-proportion="0.0" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/routes/views/help.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="12" column="57" selection-start="289" selection-end="289" vertical-scroll-proportion="0.28753993" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/views/index.jade">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/templates/views/nedvizimost.jade">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="30" column="52" selection-start="1723" selection-end="1735" vertical-scroll-proportion="0.0">
+        <state line="10" column="76" selection-start="313" selection-end="313" vertical-scroll-proportion="0.23961662" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../../templates/views/post.jade">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="32" column="19" selection-start="832" selection-end="835" vertical-scroll-proportion="0.6230032" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/views/contact.jade">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="30" column="8" selection-start="1175" selection-end="1175" vertical-scroll-proportion="0.74093264" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/routes/middleware.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="51" column="64" selection-start="1348" selection-end="1348" vertical-scroll-proportion="1.0479233" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/routes/views/nedvizimost.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="82" column="5" selection-start="3268" selection-end="3268" vertical-scroll-proportion="0.016910935">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public/js/nedvizClient.js">
+    <entry file="file://$PROJECT_DIR$/models/help.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="499" column="36" selection-start="20774" selection-end="20774" vertical-scroll-proportion="0.43233946">
-          <folding>
-            <marker date="1396182677304" expanded="false" signature="2554:2566" placeholder="..." />
-            <marker date="1396182677304" expanded="false" signature="2671:2695" placeholder="..." />
-            <marker date="1396182677304" expanded="false" signature="2751:2775" placeholder="..." />
-            <marker date="1396182677304" expanded="false" signature="2832:2856" placeholder="..." />
-            <marker date="1396182677304" expanded="false" signature="3095:3108" placeholder="..." />
-            <marker date="1396182677304" expanded="false" signature="3881:3898" placeholder="..." />
-            <marker date="1396182677304" expanded="false" signature="4140:4157" placeholder="..." />
-            <marker date="1396182677304" expanded="false" signature="4450:4463" placeholder="..." />
-            <marker date="1396182677304" expanded="false" signature="5081:5094" placeholder="..." />
-            <marker date="1396182677304" expanded="false" signature="5323:5340" placeholder="..." />
-            <marker date="1396182677304" expanded="false" signature="5490:5507" placeholder="..." />
-            <marker date="1396182677304" expanded="false" signature="5646:5663" placeholder="..." />
-            <marker date="1396182677304" expanded="false" signature="5809:5826" placeholder="..." />
-            <marker date="1396182677304" expanded="false" signature="6225:6242" placeholder="..." />
-            <marker date="1396182677304" expanded="false" signature="6389:6406" placeholder="..." />
-            <marker date="1396182677304" expanded="false" signature="6552:6569" placeholder="..." />
-            <marker date="1396182677304" expanded="false" signature="6723:6740" placeholder="..." />
-            <marker date="1396182677304" expanded="false" signature="6886:6903" placeholder="..." />
-            <marker date="1396182677304" expanded="false" signature="7054:7071" placeholder="..." />
-            <marker date="1396182677304" expanded="false" signature="7221:7238" placeholder="..." />
-            <marker date="1396182677304" expanded="false" signature="7670:7703" placeholder="..." />
-            <marker date="1396182677304" expanded="false" signature="8248:8261" placeholder="..." />
-            <marker date="1396182677304" expanded="false" signature="8274:8292" placeholder="..." />
-            <marker date="1396182677304" expanded="true" signature="32179:32296" placeholder="..." />
-            <marker date="1396182677304" expanded="true" signature="33195:33208" placeholder="..." />
-            <marker date="1396182677304" expanded="true" signature="33221:33239" placeholder="..." />
-          </folding>
+        <state line="20" column="28" selection-start="490" selection-end="494" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/views/help.jade">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="5" column="25" selection-start="104" selection-end="104" vertical-scroll-proportion="0.08455468">
+          <folding />
         </state>
       </provider>
     </entry>

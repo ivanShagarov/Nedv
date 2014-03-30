@@ -59,10 +59,10 @@ html
 						ul.nav.navbar-nav.navbar-right
 							if user
 								if user.canAccessKeystone
-									li: a(href='/keystone') Open Keystone
-								li: a(href='/keystone/signout') Sign Out
+									li: a(href='/keystone') На главную
+								li: a(href='/keystone/signout') Выход
 							else
-								li: a(href='/keystone/signin') Sign In
+								li: a(href='/keystone/signin') Вход
 
 		//- BODY
 		#body
@@ -86,7 +86,7 @@ html
 		.container: #footer
 
 			//- You don't _have_ to include a link saying your site is powered by KeystoneJS, but we appreciate it!
-			p Powered by <a href="http://keystonejs.com" target="_blank">KeystoneJS</a>.
+			p by <a href="http://www.web-impress.com" target="_blank">Web-Impress</a>
 
 
 		//- JAVASCRIPT

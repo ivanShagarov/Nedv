@@ -24,6 +24,7 @@ var source =
         { name: 'contact', type: 'int'},
 
         { name: 'ids', type: 'int'},
+        { name: 'repeats', type: 'int'},
 
         { name: 'zilaya', type: 'int'},
         { name: 'kuhnya', type: 'int'},
@@ -496,8 +497,8 @@ var quickFilter = function (datafield, datavalue) {
         filtercondition = 'equal';
     }
 
-    if(datafield == "contact"){
-        filtercondition = 'equal';
+    if(datafield == "repeats"){
+        filtercondition = 'less_than_or_equal';
     }
 
 
@@ -724,8 +725,8 @@ $("#vtorichka").click(function () {
 
 $("#ubratAgentov").click(function () {
 
-        var datafield = "contact";
-        var datavalue = "5";
+        var datafield = "repeats";
+        var datavalue = 5;
         var button = $("#ubratAgentov");
         var myClass = button.attr("class");
 
@@ -972,7 +973,8 @@ $("#jqxgrid").jqxGrid(
                         { text: 'Телефон', datafield: 'contact', width: 100, filterable: false, sortable: false },
                         { text: 'Комнат', datafield: 'komnat', width: 90, hidden: true },   // , hidden: true
                         { text: 'Фото', datafield: 'photos', width: 90, hidden: true },
-                        { text: 'Тип рынка', datafield: 'marketType', width: 90, hidden: true }
+                        { text: 'Тип рынка', datafield: 'marketType', width: 90, hidden: true },
+                        { text: 'Повторов', datafield: 'repeats', width: 90, hidden: true }
                         ]
 });
 

@@ -14,7 +14,7 @@ User.add({
 	email: { type: Types.Email, initial: true, required: true, index: true },
 	password: { type: Types.Password, initial: true, required: false }
 }, 'Permissions', {
-	isAdmin: { type: Boolean, label: 'Can access Keystone' }
+	isAdmin: { type: Boolean, label: 'Доступ к админке!' }
 });
 
 // Provide access to Keystone

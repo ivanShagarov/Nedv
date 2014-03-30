@@ -1,10 +1,10 @@
 extends /layouts/default
 
 block body-contents
-	h1 Hi *|first_name|*,
-	p.text-larger An enquiry was just submitted to #{brand}:
+	h1 Привет *|first_name|*,
+	p.text-larger Новое сообщение пришло на #{brand}:
 	if enquiry.name.full || enquiry.email
-		p.text-larger From 
+		p.text-larger От
 			if enquiry.name.full
 				| <strong>#{enquiry.name.full}</strong>
 			if enquiry.name.full && enquiry.email
@@ -14,11 +14,11 @@ block body-contents
 			if enquiry.name.full && enquiry.email
 				| )
 	if enquiry.phone
-		p.text-larger Phone: #{enquiry.phone}
+		p.text-larger Телефон: #{enquiry.phone}
 	if enquiry.enquiryType
 		p.text-larger #{enquiry._.enquiryType.format()}
 	if enquiry.message
 		.text-larger !{enquiry.message.html}
-	p.text-muted Sent #{enquiry._.createdAt.format()}
+	p.text-muted Отправлено #{enquiry._.createdAt.format()}
 	p &nbsp;
-	+button({ url: '/keystone/enquiries/' + enquiry.id, label: 'Open Keystone' })
+	+button({ url: '/keystone/enquiries/' + enquiry.id, label: 'Открыть на сайте Realt Helper' })
