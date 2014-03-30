@@ -335,7 +335,43 @@ var applyFilter = function (dataFields, dataValues) {
             var datafield = dataFields[0];
             var filtervalue = dataValues[0];
 
-            if(datafield == "komnat" && filtervalue == "Многокомнатные"){
+
+            //Если цена
+            if(datafield == "price"){
+                var filtergroup = new $.jqx.filter();
+                var priceAr = filtervalue.split("/");
+                for (var n = 0; n < priceAr.length; n++) {
+                    filtervalue = priceAr[n];
+                    var filter_or_operator = 0;
+                    if (n == 0){
+                        filtercondition = "greater_than_or_equal";
+                    } else {
+                        filtercondition = "less_than_or_equal";
+                    }
+                    var filter = filtergroup.createfilter(filtertype, filtervalue, filtercondition);
+                    filtergroup.addfilter(filter_or_operator, filter);
+                }
+                //Если площадь
+            } else if(datafield == "plosh"){
+                var filtergroup = new $.jqx.filter();
+                var ploshAr = filtervalue.split("/");
+
+
+                for (var n = 0; n < ploshAr.length; n++) {
+                    filtervalue = ploshAr[n];
+
+                    var filter_or_operator = 0;
+                    if (n == 0){
+                        filtercondition = "greater_than_or_equal";
+                    } else {
+                        filtercondition = "less_than_or_equal";
+                    }
+
+                    var filter = filtergroup.createfilter(filtertype, filtervalue, filtercondition);
+                    filtergroup.addfilter(filter_or_operator, filter);
+                }
+                // Если комнаты
+            } else if(datafield == "komnat" && filtervalue == "Многокомнатные"){
                 var filtergroup = new $.jqx.filter();
                 var notContValues = ["Студии","1","2","3", " "];
                 for (var n = 0; n < notContValues.length; n++) {
@@ -371,7 +407,40 @@ var applyFilter = function (dataFields, dataValues) {
             for (var i = 0; i < dataFields.length; i++) {
                 var datafield = dataFields[i];
                 var filtervalue = dataValues[i];
-                if(datafield == "komnat" && filtervalue == "Многокомнатные"){
+
+
+                //Если цена
+                if(datafield == "price"){
+                    var filtergroup = new $.jqx.filter();
+                    var priceAr = filtervalue.split("/");
+                    for (var n = 0; n < priceAr.length; n++) {
+                        filtervalue = priceAr[n];
+                        var filter_or_operator = 0;
+                        if (n == 0){
+                            filtercondition = "greater_than_or_equal";
+                        } else {
+                            filtercondition = "less_than_or_equal";
+                        }
+                        var filter = filtergroup.createfilter(filtertype, filtervalue, filtercondition);
+                        filtergroup.addfilter(filter_or_operator, filter);
+                    }
+                    //Если площадь
+                } else if(datafield == "plosh"){
+                    var filtergroup = new $.jqx.filter();
+                    var ploshAr = filtervalue.split("/");
+                    for (var n = 0; n < ploshAr.length; n++) {
+                        filtervalue = ploshAr[n];
+                        var filter_or_operator = 0;
+                        if (n == 0){
+                            filtercondition = "greater_than_or_equal";
+                        } else {
+                            filtercondition = "less_than_or_equal";
+                        }
+                        var filter = filtergroup.createfilter(filtertype, filtervalue, filtercondition);
+                        filtergroup.addfilter(filter_or_operator, filter);
+                    }
+                    // Если комнаты
+                } else if(datafield == "komnat" && filtervalue == "Многокомнатные"){
                     var filtergroup = new $.jqx.filter();
                     var notContValues = ["Студии","1","2","3", " "];
                         for (var n = 0; n < notContValues.length - 1; n++) {
@@ -415,10 +484,288 @@ var applyFilter = function (dataFields, dataValues) {
 }
 
 
+// builds and applies the filter.
+var quickFilter = function (datafield, datavalue) {
+    var filtertype = 'stringfilter';
+    var filtercondition = 'contains';
+    var filtervalue = datavalue;
+    var filtergroup = new $.jqx.filter();
+    var filter_or_operator = 0;
+
+    if(datafield == "new"){
+        filtercondition = 'equal';
+    }
+
+    if(datafield == "contact"){
+        filtercondition = 'equal';
+    }
+
+
+    var filter = filtergroup.createfilter(filtertype, filtervalue, filtercondition);
+    filtergroup.addfilter(filter_or_operator, filter);
+    $("#jqxgrid").jqxGrid('addfilter', datafield, filtergroup);
+    $("#jqxgrid").jqxGrid('applyfilters');
+}
+
+//
+$("#tolkoSPhoto").click(function () {
+
+    var datafield = "photos";
+    var datavalue = "http";
+    var button = $("#tolkoSPhoto");
+    var myClass = button.attr("class");
+
+    if (myClass == "btn btn-primary") {
+        button.addClass("btn-success");
+        quickFilter(datafield, datavalue);
+    } else {
+        button.removeClass("btn-success");
+        $("#jqxgrid").jqxGrid('removefilter', datafield);
+        $("#jqxgrid").jqxGrid('applyfilters');
+    }
+
+});
+
+
+$("#tolkoNew").click(function () {
+
+        var datafield = "new";
+        var datavalue = 1;
+        var button = $("#tolkoNew");
+        var myClass = button.attr("class");
+
+        if (myClass == "btn btn-primary") {
+            button.addClass("btn-success");
+            quickFilter(datafield, datavalue);
+        } else {
+            button.removeClass("btn-success");
+            $("#jqxgrid").jqxGrid('removefilter', datafield);
+            $("#jqxgrid").jqxGrid('applyfilters');
+        }
+
+});
+
+
+$("#prodayu").click(function () {
+
+    var datafield = "typeobyavl";
+    var datavalue = "Продам";
+    var button = $("#prodayu");
+    var myClass = button.attr("class");
+
+    // Убрать взаимоисключающие фильтры на одно поле - один фильтр (два при сложных)
+    if ($("#snimu").attr("class") == "btn btn-primary btn-success") {
+        $("#snimu").removeClass("btn-success");
+    }
+
+    if ($("#kuplyu").attr("class") == "btn btn-primary btn-success") {
+        $("#kuplyu").removeClass("btn-success");
+    }
+
+    if ($("#sdayu").attr("class") == "btn btn-primary btn-success") {
+        $("#sdayu").removeClass("btn-success");
+    }
+
+    if (myClass == "btn btn-primary") {
+        button.addClass("btn-success");
+        quickFilter(datafield, datavalue);
+    } else {
+        button.removeClass("btn-success");
+        $("#jqxgrid").jqxGrid('removefilter', datafield);
+        $("#jqxgrid").jqxGrid('applyfilters');
+    }
+
+});
+
+$("#sdayu").click(function () {
+
+    var datafield = "typeobyavl";
+    var datavalue = "Сдам";
+    var button = $("#sdayu");
+    var myClass = button.attr("class");
+
+    // Убрать взаимоисключающие фильтры на одно поле - один фильтр (два при сложных)
+    if ($("#snimu").attr("class") == "btn btn-primary btn-success") {
+        $("#snimu").removeClass("btn-success");
+    }
+
+    if ($("#kuplyu").attr("class") == "btn btn-primary btn-success") {
+        $("#kuplyu").removeClass("btn-success");
+    }
+
+    if ($("#prodayu").attr("class") == "btn btn-primary btn-success") {
+        $("#prodayu").removeClass("btn-success");
+    }
+
+    if (myClass == "btn btn-primary") {
+        button.addClass("btn-success");
+        quickFilter(datafield, datavalue);
+    } else {
+        button.removeClass("btn-success");
+        $("#jqxgrid").jqxGrid('removefilter', datafield);
+        $("#jqxgrid").jqxGrid('applyfilters');
+    }
+
+});
+
+$("#kuplyu").click(function () {
+
+    var datafield = "typeobyavl";
+    var datavalue = "Куплю";
+    var button = $("#kuplyu");
+    var myClass = button.attr("class");
+
+    // Убрать взаимоисключающие фильтры на одно поле - один фильтр (два при сложных)
+    if ($("#snimu").attr("class") == "btn btn-primary btn-success") {
+        $("#snimu").removeClass("btn-success");
+    }
+
+    if ($("#sdayu").attr("class") == "btn btn-primary btn-success") {
+        $("#sdayu").removeClass("btn-success");
+    }
+
+    if ($("#prodayu").attr("class") == "btn btn-primary btn-success") {
+        $("#prodayu").removeClass("btn-success");
+    }
+
+
+    if (myClass == "btn btn-primary") {
+        button.addClass("btn-success");
+        quickFilter(datafield, datavalue);
+    } else {
+        button.removeClass("btn-success");
+        $("#jqxgrid").jqxGrid('removefilter', datafield);
+        $("#jqxgrid").jqxGrid('applyfilters');
+    }
+
+});
+
+$("#snimu").click(function () {
+
+    var datafield = "typeobyavl";
+    var datavalue = "Сниму";
+    var button = $("#snimu");
+    var myClass = button.attr("class");
+
+    // Убрать взаимоисключающие фильтры на одно поле - один фильтр (два при сложных)
+    if ($("#kuplyu").attr("class") == "btn btn-primary btn-success") {
+        $("#kuplyu").removeClass("btn-success");
+    }
+
+    if ($("#sdayu").attr("class") == "btn btn-primary btn-success") {
+        $("#sdayu").removeClass("btn-success");
+    }
+
+    if ($("#prodayu").attr("class") == "btn btn-primary btn-success") {
+        $("#prodayu").removeClass("btn-success");
+    }
+
+    if (myClass == "btn btn-primary") {
+        button.addClass("btn-success");
+        quickFilter(datafield, datavalue);
+    } else {
+        button.removeClass("btn-success");
+        $("#jqxgrid").jqxGrid('removefilter', datafield);
+        $("#jqxgrid").jqxGrid('applyfilters');
+    }
+
+});
+
+
+$("#novostroi").click(function () {
+
+    var datafield = "marketType";
+    var datavalue = "Новостро";
+    var button = $("#novostroi");
+    var myClass = button.attr("class");
+
+    // Убрать взаимоисключающие фильтры на одно поле - один фильтр (два при сложных)
+    if ($("#vtorichka").attr("class") == "btn btn-primary btn-success") {
+        $("#vtorichka").removeClass("btn-success");
+    }
+
+    if (myClass == "btn btn-primary") {
+        button.addClass("btn-success");
+        quickFilter(datafield, datavalue);
+    } else {
+        button.removeClass("btn-success");
+        $("#jqxgrid").jqxGrid('removefilter', datafield);
+        $("#jqxgrid").jqxGrid('applyfilters');
+    }
+
+});
+
+
+$("#vtorichka").click(function () {
+
+    var datafield = "marketType";
+    var datavalue = "Вторич";
+    var button = $("#vtorichka");
+    var myClass = button.attr("class");
+
+    // Убрать взаимоисключающие фильтры на одно поле - один фильтр (два при сложных)
+    if ($("#novostroi").attr("class") == "btn btn-primary btn-success") {
+        $("#novostroi").removeClass("btn-success");
+    }
+
+
+    if (myClass == "btn btn-primary") {
+        button.addClass("btn-success");
+        quickFilter(datafield, datavalue);
+    } else {
+        button.removeClass("btn-success");
+        $("#jqxgrid").jqxGrid('removefilter', datafield);
+        $("#jqxgrid").jqxGrid('applyfilters');
+    }
+
+});
+
+
+
+$("#ubratAgentov").click(function () {
+
+        var datafield = "contact";
+        var datavalue = "5";
+        var button = $("#ubratAgentov");
+        var myClass = button.attr("class");
+
+        if (myClass == "btn btn-primary") {
+            button.addClass("btn-success");
+            quickFilter(datafield, datavalue);
+        } else {
+            button.removeClass("btn-success");
+            $("#jqxgrid").jqxGrid('removefilter', datafield);
+            $("#jqxgrid").jqxGrid('applyfilters');
+        }
+
+});
+
+
+
 // clears the filter.
 $("#clearFilters").click(function () {
     $("#jqxgrid").jqxGrid('clearfilters');
+    $('#cityNames').val('');
+    $('#cityRaions').val('');
+    $('#category').val('');
+    $('#komnat').val('');
+    $('#period').val('');
+    $('#plosh').val('');
+    $('#price').val('');
+
+    // Очистка быстрых тоже
+    $("#tolkoNew").removeClass("btn-success");
+    $("#tolkoSPhoto").removeClass("btn-success");
+    $("#prodayu").removeClass("btn-success");
+    $("#sdayu").removeClass("btn-success");
+    $("#kuplyu").removeClass("btn-success");
+    $("#snimu").removeClass("btn-success");
+    $("#novostroi").removeClass("btn-success");
+    $("#vtorichka").removeClass("btn-success");
+
 });
+
+
 
 // applies the filter.
 $("#applyFilters").click(function () {
@@ -453,11 +800,9 @@ $("#applyFilters").click(function () {
 
     var period = $("#period").val();
     if(period != ""){
-
        // period: [ "1 день", "2 дня", "3 дня", "Неделя", "2 недели", "3 недели", "Месяц", "Текущий год" ],
        var today = new Date();
        var offset = 0;
-
         switch(period)
         {
             case "1 день":
@@ -485,31 +830,74 @@ $("#applyFilters").click(function () {
                 offset = 365;
                 break;
         }
-
         today.setDate(today.getDate() - offset);
-
-
         var dd = today.getDate();
         var mm = today.getMonth()+1; //January is 0!
         var yyyy = today.getFullYear();
-
-        //period = today.toISOString();
-        //period = 'ISODate("' + period +'")';
-        //new Date(newDate).getTime()   mm/dd/yyyy  mm+"/"+dd+"/"+yyyy
-       // period = new Date(mm+"/"+dd+"/"+yyyy).getTime();
-
         if(mm<10) {
             mm='0'+mm;
         }
-
         period = dd+"/"+mm+"/"+yyyy;
-
-
-
-        alert(period);
+       // alert(period);
         dataFields.push("date");
         dataValues.push(period);
     }
+
+    //plosh: [ "0 - 30 м²", "30 - 70 м²", "70 - 100 м²", "100 - 200 м²", "200 и больше" ],
+    var plosh = $("#plosh").val();
+    if(plosh != ""){
+        switch(plosh)
+        {
+            case "0 - 30 м²":
+                plosh = "1/30";
+                break;
+            case "30 - 70 м²":
+                plosh = "30/70";
+                break;
+            case "70 - 100 м²":
+                plosh = "70/100";
+                break;
+            case "100 - 200 м²":
+                plosh = "100/200";
+                break;
+            case "200 и больше":
+                plosh = "200/100000000000000";
+                break;
+        }
+
+
+        dataFields.push("plosh");
+        dataValues.push(plosh);
+    }
+
+    //price: [ "0 - 300 т. руб.", "300 - 700 т. руб.", "700 т. - 1.5 млн. руб.", "1.5 - 3 млн. руб.", "3 млн. и больше" ]
+    var price = $("#price").val();
+    if(price != ""){
+        switch(price)
+        {
+            case "0 - 300 т. руб.":
+                price = "1/300000";
+                break;
+            case "300 - 700 т. руб.":
+                price = "300000/700000";
+                break;
+            case "700 т. - 1.5 млн. руб.":
+                price = "700000/1500000";
+                break;
+            case "1.5 - 3 млн. руб.":
+                price = "1500000/3000000";
+                break;
+            case "3 млн. и больше":
+                price = "3000000/1000000000000000000000000000000";
+                break;
+        }
+
+
+        dataFields.push("price");
+        dataValues.push(price);
+    }
+
+
 
 
     if(dataFields.length > 0) applyFilter(dataFields, dataValues);
@@ -582,7 +970,9 @@ $("#jqxgrid").jqxGrid(
                         { text: 'Площадь', datafield: 'plosh', width: 70 },
                         { text: 'Цена', datafield: 'price', width: 140, cellsformat: 'c' },
                         { text: 'Телефон', datafield: 'contact', width: 100, filterable: false, sortable: false },
-                        { text: 'Комнат', datafield: 'komnat', width: 90, hidden: true }   // , hidden: true
+                        { text: 'Комнат', datafield: 'komnat', width: 90, hidden: true },   // , hidden: true
+                        { text: 'Фото', datafield: 'photos', width: 90, hidden: true },
+                        { text: 'Тип рынка', datafield: 'marketType', width: 90, hidden: true }
                         ]
 });
 

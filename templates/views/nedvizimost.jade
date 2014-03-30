@@ -17,10 +17,18 @@ block content
             .panel
                 .panel-title Быстрые фильтры
                 .form-inline
+                    a(href='#', id='tolkoSPhoto', style='margin-top: 10px; margin-right: 10px;').btn.btn-primary Только с фото
+                    a(href='#', id='tolkoNew', style='margin-top: 10px; margin-right: 10px;').btn.btn-primary Только новые
+                    a(href='#', id='prodayu', style='margin-top: 10px; margin-right: 10px;').btn.btn-primary Продаю
+                    a(href='#', id='sdayu', style='margin-top: 10px; margin-right: 10px;').btn.btn-primary Сдаю
+                    a(href='#', id='kuplyu', style='margin-top: 10px; margin-right: 10px;').btn.btn-primary Куплю
+                    a(href='#', id='snimu', style='margin-top: 10px; margin-right: 10px;').btn.btn-primary Сниму
+                    a(href='#', id='novostroi', style='margin-top: 10px; margin-right: 10px;').btn.btn-primary Новострой
+                    a(href='#', id='vtorichka', style='margin-top: 10px; margin-right: 10px;').btn.btn-primary Вторичка
                     if !user
                         a(href='#' title="Доступно только зарегистрированным пользователям!" data-placement='right', style='margin-top: 10px; margin-right: 10px;').btn.btn-warning Убрать агентов
                     else
-                        a(href='#', style='margin-top: 10px; margin-right: 10px;').btn.btn-primary Убрать агентов
+                        a(href='#', id='ubratAgentov', style='margin-top: 10px; margin-right: 10px;').btn.btn-primary Убрать агентов
                     .v-spacer
 
 
@@ -51,6 +59,16 @@ block content
                     select(name='period', id='period', style='margin-top: 10px; margin-right: 10px;').form-control
                         option(value='') Период
                             each name in data.period
+                                option(value=name)= name
+
+                    select(name='plosh', id='plosh', style='margin-top: 10px; margin-right: 10px;').form-control
+                        option(value='') Площадь
+                            each name in data.plosh
+                                option(value=name)= name
+
+                    select(name='price', id='price', style='margin-top: 10px; margin-right: 10px;').form-control
+                        option(value='') Цена
+                            each name in data.price
                                 option(value=name)= name
 
                     .v-spacer
